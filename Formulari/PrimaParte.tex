@@ -1,0 +1,88 @@
+\documentclass[10pt]{article}
+\usepackage{lscape}
+\usepackage{geometry}
+\usepackage{graphicx} % Necessario per scalare la tabella
+\usepackage{adjustbox} % Opzionale, per un controllo più fine della dimensione
+\usepackage{array}
+\usepackage{amsmath}
+
+\geometry{a4paper, left=0.5cm, right=1cm, top=1cm, bottom=1cm}
+
+\pagestyle{empty}
+
+\let\olditemize\itemize
+\renewcommand\itemize{\olditemize\setlength\itemsep{0em}}
+
+\begin{document}
+\begin{landscape}
+
+% Posizionamento della tabella in modo fisso e ridotto
+\begin{picture}(0,0)
+    \put(585,-535){ % Coordina verticalmente e orizzontalmente la posizione della tabella
+        \scalebox{0.7}{ % Riduce la tabella al 70% della sua dimensione originale
+        \begin{tabular}{|c c c c c|}
+        \hline
+        $\sqrt{1}=1$ & $\sqrt{4}=2$ & $\sqrt{9}=3$ & $\sqrt{16}=4$ & $\sqrt{25}=5$ \\
+        $\sqrt{36}=6$ & $\sqrt{49}=7$ & $\sqrt{64}=8$ & $\sqrt{81}=9$ & $\sqrt{100}=10$\\
+        $\sqrt{121}=11$ & $\sqrt{144}=12$ & $\sqrt{169}=13$ & $\sqrt{196}=14$ & $\sqrt{225}=15$ \\ 
+        $\sqrt{256}=16$ & $\sqrt{289}=17$ & $\sqrt{324}=18$ & $\sqrt{361}=19$ & $\sqrt{400}=20$\\
+        $\sqrt{441}=21$ & $\sqrt{484}=22$ & $\sqrt{529}=23$ & $\sqrt{576}=24$ & $\sqrt{625}=25$ \\ 
+        $\sqrt{676}=26$ & $\sqrt{729}=27$ & $\sqrt{784}=28$ & $\sqrt{841}=29$ & $\sqrt{900}=30$\\
+        \hline
+        \end{tabular}
+        }
+    }
+\end{picture}
+
+% Testo normale qui
+\noindent
+\begin{minipage}[t]{0.49\textwidth}
+Qui ci andranno gli esercizi già fatti
+\end{minipage}
+%\hfill
+\begin{minipage}[t]{0.49\textwidth}
+\begin{tabular}{| m{2cm} | m{15cm} |}
+    \hline
+    Matrice Invertibili $A$ & 
+    \begin{itemize} 
+        \item $\det A \neq 0$ 
+        \item $\det (A^{-1})=\frac{1}{\det A}$
+        \item $A$ non invertibile se $A^{N}=0$
+        \item Il prodotto di due matrici diagonali è diagonale
+        \item Una matrice diagonale non è per forza invertibile (potrebbe avere degli zeri nella diagonale)
+        \item Teorema di Binét: $\det(AB)=\det A \cdot \det B$
+        \item Ogni matrice diagonale è simmetrica
+    \end{itemize} 
+    \\
+    \hline
+    Sistemi lineari & \begin{itemize}
+        \item Rouché-Capelli: $\infty^{\#incognite-\text{rk}(A)}$ con \#incognite $\neq$ rk$(A)$
+        \item Se \#incognite = rk$(A)$ allora esiste una sola soluzione (\#incognite sono le colonne, le soluzioni sono le righe)
+        \item Gauss: $R_{i}=R_{i}+(\frac{-a_{i1}}{a_{jj}})R_{j}$
+    \end{itemize} \\
+    \hline
+    Vettori & \begin{itemize}
+        \item $\begin{bmatrix}
+            x_{1} \\ x_{2}
+        \end{bmatrix}+\begin{bmatrix}
+            w_{1} \\ w_{2}
+        \end{bmatrix} = \begin{bmatrix}
+            x_{1}+w_{1} \\
+            x_{2}+w_{2} \\
+        \end{bmatrix}$
+        \item Dipendenza lineare: $\alpha v_{1}+\beta v_{2} = 0$
+        \item Indipendenza lineare: $\alpha v_{1}+\beta v_{2} = 0 \rightarrow \alpha = \beta = 0$
+        \item I vettori sono base di $R^{N}$ quando la matrice composta dai vettori ha rango $N$
+        \item $v_{1} \in \langle v_{2},v_{3}\rangle \rightarrow v_{1}=\alpha v_{2}+\beta v_{3}$
+    \end{itemize} \\
+    \hline
+    Vario & 
+    \begin{itemize}
+        \item  
+    \end{itemize} \\
+    \hline
+\end{tabular}
+\end{minipage}
+
+\end{landscape}
+\end{document}
