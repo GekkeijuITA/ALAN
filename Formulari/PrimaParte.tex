@@ -5,6 +5,7 @@
 \usepackage{adjustbox} % Opzionale, per un controllo più fine della dimensione
 \usepackage{array}
 \usepackage{amsmath}
+\usepackage{amssymb}
 
 \geometry{a4paper, left=0.5cm, right=1cm, top=1cm, bottom=1cm}
 
@@ -87,7 +88,13 @@ Qui ci andranno gli esercizi già fatti
     \hline
     Esercizio 1 & Fare Gauss per il rango, creare il sistema (prendo le x in comune e le tratto come libere), isolo le x, sostituisco le x trovate nel vettore X, eseguo $X\cdot v = 0$, isolo una x, sostituisco nuovamente e poi costruisco il vettore prendendo i coefficienti\\
     \hline
-    Esercizio 2 & Calcolare il det di una $2\times2$ a caso, se det $\neq 0$ allora $rk(A)\geq 2$ possiamo orlarla, altrimenti ne cerco un'altra, calcoliamo il det di tutte le possibili $3\times3$, le $\lambda$ in comune alle $3\times3$ sono quelle che rk(A)=2, tutte le altre rk(A)=3\\
+    Esercizio 2 & Calcolare il det di una $2\times2$ a caso, se det $\neq 0$ allora $rk(A)\geq 2$ possiamo orlarla, altrimenti ne cerco un'altra, calcoliamo il det di tutte le possibili $3\times3$, le $\lambda$ in comune alle $3\times3$ sono quelle che rk(A)=2, tutte le altre rk(A)=3; \\
+    \hline
+    Esercizio 3 & \begin{itemize}
+        \item Se $A$ è una matrice nilpotente (ossia esiste un intero positivo $n$ tale che $A^{n}=0$) allora $\det A=0$ $\rightarrow$ Nilpotente non invertibile allora $\det A=0$
+        \item Se $A$ è una matrice simmetrica, allora $A^{2}$ è simmetrica $\rightarrow$ $M$ simmetrica se $M=M^{T}\Rightarrow M^{T}\cdot M^{T}=(M\cdot M)^{T}\Rightarrow M = M^{T}$, sostituisci $M$ con $A^{2}$
+        \item Sia $A\in M_{3,2}(\mathbb{R})$ di rango 2, allora il sistema lineare $AX=B$ ammette soluzioni comunque si scelga la matrice $B$ dei termini noti. $\rightarrow$ Se si sceglie $B$ t.c $rk(A|B)=3$ allora il sistema è impossibile (non ammette soluzioni) per Rouché-Capelli ($\infty^{2-3}$)
+    \end{itemize}\\
     \hline
 \end{tabular}
 \end{minipage}
