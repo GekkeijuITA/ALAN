@@ -94,6 +94,36 @@ Qui ci andranno gli esercizi già fatti
         \item Se $A$ è una matrice nilpotente (ossia esiste un intero positivo $n$ tale che $A^{n}=0$) allora $\det A=0$ $\rightarrow$ Nilpotente non invertibile allora $\det A=0$
         \item Se $A$ è una matrice simmetrica, allora $A^{2}$ è simmetrica $\rightarrow$ $M$ simmetrica se $M=M^{T}\Rightarrow M^{T}\cdot M^{T}=(M\cdot M)^{T}\Rightarrow M = M^{T}$, sostituisci $M$ con $A^{2}$
         \item Sia $A\in M_{3,2}(\mathbb{R})$ di rango 2, allora il sistema lineare $AX=B$ ammette soluzioni comunque si scelga la matrice $B$ dei termini noti. $\rightarrow$ Se si sceglie $B$ t.c $rk(A|B)=3$ allora il sistema è impossibile (non ammette soluzioni) per Rouché-Capelli ($\infty^{2-3}$)
+        \item $A^{3}-A=I_{2}\rightarrow A(A^{2}-I)=I\Rightarrow(A^{2}-I)=A^{-1}$ quindi $AA^{-1}=I$ ($A$ è invertibile)
+        \item $A^{3}-A=0\rightarrow A(A^{2}-I)=0\Rightarrow A=0, A^{2}-I=0\Rightarrow A=0, A^{2}=I$ quindi $A$ è invertibile se $A^{2}=I$ altrimenti se $A=0$ non è invertibile
+        \item $A^{3}-A=\begin{pmatrix}
+            1 & 1 \\
+            2 & 3
+        \end{pmatrix}\rightarrow A(A^{2}-I)=\begin{pmatrix}
+            1 & 1 \\
+            2 & 3
+        \end{pmatrix}\Rightarrow A=\begin{pmatrix}
+            1 & 1 \\
+            2 & 3
+        \end{pmatrix}, A^{2}-I=\begin{pmatrix}
+            1 & 1 \\
+            2 & 3
+        \end{pmatrix}\Rightarrow A^{2}=\begin{pmatrix}
+            1 & 1 \\
+            2 & 3
+        \end{pmatrix}+I=\begin{pmatrix}
+            2 & 1 \\
+            2 & 4
+        \end{pmatrix}\Rightarrow A=\begin{pmatrix}
+            \sqrt{2} & 1 \\
+            \sqrt{2} & 2
+        \end{pmatrix}$ poi calcolo il determinante delle due $A$ e uso il teorema di Binét: $\det\begin{pmatrix}
+            1 & 1 \\
+            2 & 3
+        \end{pmatrix}=1, \det\begin{pmatrix}
+            \sqrt{2} & 1 \\
+            \sqrt{2} & 2
+        \end{pmatrix}=2\sqrt{2}-\sqrt{2}\neq 0$, quindi $A$ è invertibile
     \end{itemize}\\
     \hline
 \end{tabular}
