@@ -1,0 +1,322 @@
+\documentclass[10pt]{article}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\geometry{a4paper, left=1cm, right=1cm, top=0.5cm, bottom=0.5cm}
+
+\let\olditemize\itemize
+\renewcommand\itemize{\olditemize\setlength\itemsep{0em}}
+\let\oldenumerate\enumerate
+\renewcommand\enumerate{\oldenumerate\setlength\itemsep{0em}}
+
+\title{Esercizi Esame ALAN}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\section{Esercizio 1: Errori}
+\subsection{Condizionamento}
+Il condizionamento è dato dalla formula:
+\begin{equation*}
+    C_{f}=\frac{x(f'(x))}{f(x)}
+\end{equation*}
+L'esercizio da due o più algoritmi, per facilitare i calcoli si può scegliere il più "facile" per andare avanti con i calcoli. Per discutere il risultato di $C_{f}$, ne calcoliamo il limite; se l'esercizio specifica "per piccoli valori di $x$" calcoliamo il limite che tende a 0, "per piccoli valori positivi di $x$" calcoliamo il limite che dente a $0^{+}$ e per "grandi valori di $x$" calcoliamo il limite che tende a $+\infty$. Il risultato del limite serve per calcolare l'errore inerente:
+\begin{equation*}
+    Err.Inerente = C_{f}\cdot Err.Input
+\end{equation*}
+\begin{itemize}
+    \item $0\leq C_{f}\leq 1$ il problema è ben condizionato
+    \item $C_{f}\leq 10$ il problema è debolmente mal condizionato
+    \item $C_{f}>10$ il problema mal condizionato
+\end{itemize}
+\subsection{Errori negli algoritmi}
+Si disegna il grafo del primo algoritmo partendo da $x$ e ogni nodo sarà composto da un'operazione elementare. Si assegna ad ogni nodo un nome($\varepsilon_{x}$ con $x$ contenuto del nodo) ed a ogni arco la costante moltiplicativa dell'errore, tranne agli input e alle costanti. Per calcolare l'errore di ogni operazione si usano le seguenti formule:
+\begin{equation*}
+    \varepsilon_{a+b}=\frac{a}{a\pm b}\varepsilon_{a}+\frac{b}{a\pm b}\varepsilon_{b}
+\end{equation*}
+\begin{equation*}
+    \varepsilon_{a\cdot b}=\varepsilon_{b}+\varepsilon_{a}
+\end{equation*}
+\begin{equation*}
+    \varepsilon_{a/b}=\varepsilon_{b}-\varepsilon_{a}
+\end{equation*}
+\begin{equation*}
+    \varepsilon_{g(x)}=C_{g(x)}\cdot \varepsilon_{x}
+\end{equation*}
+Si calcola l'errore algoritmico sommando tutti gli errori partendo dal nodo etichettato con quell'errore moltiplicando le costanti moltiplicative fino al nodo finale, in caso di più cammini vengono sommate le varie parti (ovvero le moltiplicazioni). Per verificare che l'algoritmo sia stabile si calcola il limite che tende al valore dato nel testo (vedi 1.1) di ogni errore (ovvero quello dentro le parentesi); se il limite viene $\infty$ allora l'algoritmo è instabile (basta che ci sia una parte che tende a infinito per poter dire che l'algoritmo è instabile) se invece il risultato del limite è finito per tutti i casi, allora l'algoritmo è stabile (bisogna calcolare tutti i limiti per poterlo dire).\\
+Prendo tutte le etichette nodo e ci metto tutti i possibili percorsi da quel nodo fino alla fine
+\begin{equation*}
+    \varepsilon\{(I\cdot II\cdot\ldots)+(\ldots)+\ldots\}
+\end{equation*}
+I "..." sono tutti i possibili percorsi.
+\newpage
+\section{Esercizio 2: Rotazioni/Riflessioni}
+\subsection{Rotazioni di Givens}
+Si indica una rotazione di Givens con:
+\begin{equation*}
+    G(i,j,\theta)
+\end{equation*}
+dove $i$ rappresenta la posizione del perno all'interno della matrice, $j$ la posizione dell'elemento da azerare e $\theta$ l'angolo di rotazione (che ignoreremo per l'esercizio). Ogni rotazione azzera un elemento ($j$) e cambia il valore del perno $i$ (0 non può essere perno). Si calcola il valore di $c$ e $s$ ad ogni passaggio:
+\begin{equation*}
+    c = \cos(\theta)=\frac{x_{i}}{\sqrt{x_{i}^{2}+x_{j}^{2}}}
+\end{equation*}
+\begin{equation*}
+    s = \sin(\theta)=\frac{-x_{j}}{\sqrt{x_{i}^{2}+x_{j}^{2}}}
+\end{equation*}
+Si costruisce la matrice inserendo $c$ e $s$:
+\begin{itemize}
+    \item $c$ in ($i,i$) e ($j,j$)
+    \item $s$ in ($i,j$), se $i>j$ allora in ($j,i$)
+    \item $-s$ in ($j,i$), se $i>j$ allora in ($i,j$)
+\end{itemize}
+\subsubsection*{Esempio}
+\textbf{NB:} le posizioni partono da 1 e non da 0.
+\begin{equation*}
+    \begin{pmatrix}
+        x_{1} \\ 0 \\ 0
+    \end{pmatrix}
+    \quad
+    \begin{pmatrix}
+        0 \\ \beta \\ 0
+    \end{pmatrix}
+\end{equation*}
+\begin{equation*}
+    G(i,j,\theta) \quad i=pos_{\beta}, j=\text{posizione da azzerare}\rightarrow G(2,1,\theta)
+\end{equation*}
+\begin{equation*}
+    s = \frac{-x_{j}}{\sqrt{x_{i}^{2}+x_{j}^{2}}} = \frac{-x_{1}}{\sqrt{0+x_{1}^{2}}}= -1
+\end{equation*}
+\begin{equation*}
+    c = \frac{x_{i}}{\sqrt{x_{i}^{2}+x_{j}^{2}}} = \frac{0}{\sqrt{0+x_{1}^{2}}} = 0
+\end{equation*}
+\begin{equation*}
+    \begin{pmatrix}
+        c & s & 0 \\
+        -s & c & 0 \\
+        0 & 0 & 1
+    \end{pmatrix} =  \begin{pmatrix}
+        0 & -1 & 0 \\
+        1 & 0 & 0 \\
+        0 & 0 & 1
+    \end{pmatrix}\rightarrow \begin{pmatrix}
+        0 & -1 & 0 \\
+        1 & 0 & 0 \\
+        0 & 0 & 1
+    \end{pmatrix}\cdot
+    \begin{pmatrix}
+        x_{1} \\ 0 \\ 0
+    \end{pmatrix} = \begin{pmatrix}
+        0 \\ x_{1} \\ 0
+    \end{pmatrix}
+\end{equation*}
+Si esegue la moltiplicazione e, se necessario, si ripete il processo usando il nuovo vettore ottenuto dalla moltiplicazione fino a quando non si raggiunge lo stesso "layout" del vettore con $\beta$.
+\subsubsection{Interpretazione geometrica}
+Per ogni rotazione, scrivere su che piano è stata fatta, ad esempio con la rotazione $G(2,1,\theta)$ si può dire: "si tratta di una rotazione nel piano $<e_{2},e_{1}>$". Visto che sono tutte isometrie: \begin{equation*}
+    \lVert \text{vettore iniziale} \rVert = \lVert \text{vettore finale} \rVert
+\end{equation*}
+Si può usare come prova.
+\subsection{Riflessioni di Householder}
+\textbf{NB:} abbiamo visto solo come ottenere una riflessione di Householder nel caso in cui $\alpha$ sia il primo elemento del vettore risultante.
+\begin{enumerate}
+    \item Si calcola $\alpha=\lVert x\rVert_{2}$
+    \item Si calcola $u=x-\alpha_{e_{1}}$ (dove $\alpha_{e_{1}}$ è il vettore con al primo posto il valore di $\alpha$ e i restanti valori a 0)
+    \item Si calcola $u^{T}u$
+    \item Si calcola $uu^{T}$
+    \item Infine si calcola P: \begin{equation*}
+        P = I2ww^{T}=I-2\frac{uu^{T}}{u^{T}u}=I-\frac{2}{u^{T}u}\cdot uu^{T}
+    \end{equation*}
+\end{enumerate}
+\subsubsection{Verifiche}
+\begin{itemize}
+    \item $P$ è ortogonale: colonne perpendicolari, prodotto scalare = 0, colonne normalizzate ($\lVert\text{colonna}\rVert_{2}=1$)
+    \item $P\cdot x = \alpha e_{1}$
+\end{itemize}
+\subsubsection{Interpretazione geometrica}
+Si scrive: $P=(\ldots)$ riflette $x=\left(\vdots\right)$ rispetto al piano perpendicolare (al vettore $w$)
+\subsubsection*{Esempio}
+\section*{Esercizio 3: Minimi quadrati}
+Dati i valori di $x$ e $y$
+\begin{enumerate}
+    \item Si disegna il grafico con i valori di $x$ e $y$
+    \item Si costruisce la matrice $A$: \begin{itemize}
+        \item Se nel testo ci sono parametri (può anche essere semplicemente l'equazione della parabola) ogni colonna di $A$ contiene tutti i valori usando le $x$, se c'è un parametro che non moltiplica si mette la colonna tutta a 1
+        \item Se non ci sono parametri (caso della retta) si mettono le $x$ nella prima colonna e nella seconda colonna tutti 1
+    \end{itemize}
+    \item Si costruisce il vettore $b$ con i valori di $y$
+    \item Si calcola $A^{T}A$ e $A^{T}b$
+    \item Si risolve il sistema: \begin{itemize}
+        \item Senza parametri (caso della retta): $A^{T}A\cdot\begin{pmatrix}
+            p \\ q
+        \end{pmatrix} = A^{T}b$
+        \item Con parametri: $A^{T}A\cdot\begin{pmatrix}
+            x \\ y \\ z \\ \ldots
+        \end{pmatrix} = A^{T}b$
+    \end{itemize}
+\end{enumerate}
+Infine, scrivere la funzione risultante con i valori trovati.
+\subsection{Mia versione di come farlo}
+\begin{equation*}
+    f(x) = \alpha g(x)\pm \beta h(x)
+\end{equation*}
+\begin{tabular}{c | c}
+    x & $x_{1}$ $x_{2}$ \ldots $x_{n}$\\
+    \hline
+    y & $y_{1}$ $y_{2}$ \ldots $y_{n}$
+\end{tabular}
+\begin{equation*}
+    A =
+    \begin{pmatrix}
+        g(x_{1}) & h(x_{1}) \\
+        g(x_{2}) & h(x_{2}) \\
+        \vdots & \vdots \\
+        g(x_{n}) & h(x_{n})
+    \end{pmatrix}
+\end{equation*}
+\begin{itemize}
+    \item Se ci sono le costanti $\alpha$ e $\beta$, allora $h(x)$ è sempre 1
+    \item Matrice incognite: $A^{T}A$
+    \item Matrice soluzioni: $A^{T}b$
+    \item Le metto a sistema, isolo $\alpha$ e $\beta$ e sostituisco a $f(x)$
+\end{itemize}
+\subsection{Interpretazione geometrica}
+Disegnare il grafico con i punti e la funzione ricavata, evidenziando le distanze tra i punti dati e il grafico. In più si può scrivere: "la retta di regressione minimizza la somma degli scarti tra i valori di $y$ dei punti ed i valori (equazione del grafico) dell* (nome funzione) calcolat* nelle ascisse $x$ dei punti dati".
+\subsection{Esempio}
+\section*{Esercizio 4: Diagonalizzazione}
+\begin{enumerate}
+    \item Controllare se $A$ è simmetrica, se lo è, allora è diagonalizzabile
+    \item Trovare gli autovalori risolvendo \begin{equation*}
+        \det(A-\lambda I)=0
+    \end{equation*} e riordinarli per il massimo modulo (non strettamente necessario ?)
+    \item Verificare la cardinalità degli autovalori (uguale all'ordine della matrice)
+    \item Per ogni autovalore trovare gli autovettori usando la matrice $A-\lambda I$ (sostituendo a $\lambda$ l'autovalore) e risolvendo il sistema \begin{equation*}
+        \begin{pmatrix}
+            A - \lambda I
+        \end{pmatrix}
+        \cdot
+        \begin{pmatrix}
+            x_{1} \\ x_{2} \\ \vdots \\ x_{n}
+        \end{pmatrix}
+        = \begin{pmatrix}
+            0 \\ 0 \\ \vdots \\ 0
+        \end{pmatrix}
+    \end{equation*}
+    \item Creare la matrice $V$ composta dagli autovettori, e la sua inversa
+    \item Creare la matrice $D$ usando gli autovalori nello stesso ordine degli autovettori. Si otterrà la diagonalizzazione della matrice di partenza composta nel seguente modo: \begin{equation*}
+        A = VDV^{-1}
+    \end{equation*}
+\end{enumerate}
+\subsection{Convergenza: Metodo delle potenze}
+Converge all'autovalore di massimo modulo
+\begin{enumerate}
+    \item Si riordinano gli autovalori in base al massimo modulo, ottenendo $\lambda_{1}$, $\lambda_{2}, \ldots, \lambda_{n}$ dove $\lambda_{1}$ è l'autovalore di massimo modulo
+    \item Converge se $\lambda_{1}>\lambda_{2}$
+    \item Si trova la velocità di convergenza con: \begin{equation*}
+        V=\left(\frac{\lambda_{2}}{\lambda_{1}}\right)^{k}
+    \end{equation*}
+\end{enumerate} 
+\subsection{Convergenza: Metodo delle potenze inverse}
+\begin{enumerate}
+    \item Dato uno shift $p$, bisogna trovare l'autovalore più vicino a $p(\lambda_{1})$ ed il secondo più vicino a $p(\lambda_{2})$
+    \item Si calcola \begin{equation*}
+        \mu_{1} = \frac{1}{\lambda_{1}-p}
+    \end{equation*}
+    Per ogni $\lambda$
+    \item $\mu_{1}$ sarà quello di massimo modulo tra tutti i $\mu$ calcolati, mentre $\mu_{2}$ sarà il secondo di massimo modulo
+    \item La velocità di convergenza si calcola: \begin{equation*}
+        V = \left(\frac{\mu_{2}}{\mu_{1}}\right)^{k}
+    \end{equation*}
+\end{enumerate}
+Se si hanno due autovalori con lo stesso modulo massimo, allora non converge.
+\section{Esercizio 5: Spline}
+Si ha una spline se:
+\begin{itemize}
+    \item $S$ è composta da polinomi di grado $\leq n$, dove $n$ è il grado della spline (ad esempio, una spline di grado 3 sarà composta da soli polinomi di grado $\leq 3$)
+    \item $S$ è continua negli estremi interni dei vari intervalli facendo: \begin{equation*}
+        \lim_{x\to n^{-}}S(x)=\lim_{x\to n^{+}}S(x)
+    \end{equation*}
+    \item $S'$ è continua negli estremi interni dei vari intervalli facendo: \begin{equation*}
+        \lim_{x\to n^{-}}S'(x)=\lim_{x\to n^{+}}S'(x)
+    \end{equation*}
+    \item $S''$ è continua negli estremi interni dei vari intervalli facendo: \begin{equation*}
+        \lim_{x\to n^{-}}S''(x)=\lim_{x\to n^{+}}S''(x)
+    \end{equation*}
+\end{itemize}
+\subsection{Calcolo dei momenti}
+Dato un nodo $K$, si calcola $S''(K)$
+\subsection{Periodicità di una spline}
+Una spline è periodica se:
+\begin{equation*}
+    \lim_{x\to e_{1}^{-}}S(x)=\lim_{x\to e_{2}^{+}}S(x)
+\end{equation*}
+\begin{equation*}
+    \lim_{x\to e_{1}^{-}}S'(x)=\lim_{x\to e_{2}^{+}}S'(x)
+\end{equation*}
+\begin{equation*}
+    \lim_{x\to e_{1}^{-}}S''(x)=\lim_{x\to e_{2}^{+}}S''(x)
+\end{equation*}
+Dove $e_{1}$ e $e_{2}$ sono i due estremi (sinistro e destro rispettivamente) della spline.
+\newpage
+\section{Esercizio 5: Condizionamento matrice e di una norma}
+Per verificare se la matrice $A^{-1}$ è l'inversa bisogna vedere se $\det(A)\neq 0$ e se $A^{-1}A=I$. Per calcolare il condizionamento relativo ad una norma, bisogna fare:
+\begin{equation*}
+    \lVert A \rVert_{nm}
+\end{equation*}
+\begin{equation*}
+    \lVert A^{-1} \rVert_{nm}
+\end{equation*}
+dove $nm$ indica la norma in questione. Poi $M(A)=\lVert A \rVert_{nm}\cdot \lVert A^{-1} \rVert_{nm}$ per calcolare la maggiorazione dell'errore:
+\begin{equation*}
+    \varepsilon_{x}=\frac{\lVert \bar{x} -x \rVert_{nm}}{\lVert x \rVert_{nm}}
+\end{equation*}
+\begin{equation*}
+    \varepsilon_{b}=\frac{\lVert \delta b \rVert_{nm}}{\lVert b \rVert_{nm}}
+\end{equation*}
+\begin{equation*}
+    \varepsilon_{x}\leq u(A)\varepsilon_{b}
+\end{equation*}
+Quindi se l'esercizio chiede di calcolare una maggiorazione, basta calcolarsi $u(A)$ e $\varepsilon_{b}$
+\subsection{Norme}
+\subsubsection{Vettori}
+\begin{equation*}
+    \lVert x \rVert_{1} = \sum_{i=1}^{n}\lvert x_{i} \rvert
+\end{equation*}
+\begin{equation*}
+    \lVert x \rVert_{2} = \sqrt{\sum_{i=1}^{n}x_{i}^{2}} = \sqrt{x^{T}x}
+\end{equation*}
+\begin{equation*}
+    \lVert x \rVert_{\infty} = \max_{1\leq i\leq n}\lvert x_{i} \rvert
+\end{equation*}
+\subsubsection{Matrici}
+\begin{equation*}
+    \lVert A \rVert_{1} = \max_{1\leq j\leq n}\sum_{i=1}^{n}\lvert a_{ij} \rvert
+\end{equation*} (Somma di tutti gli elementi in modulo di una colonna e prendo il massimo)
+\begin{equation*}
+    \lVert A \rVert_{2}
+\end{equation*} Esiste ma non calcolabile esplicitamente
+\begin{equation*}
+    \lVert A \rVert_{\infty} = \max_{1\leq i\leq n}\sum_{j=1}^{n}\lvert a_{ij} \rvert
+\end{equation*} (Somma di tutti gli elementi in modulo di una riga e prendo il massimo)
+\section{Esercizio 5: SVD}
+Una SVD viene utilizzata per trovare una diagonalizzazione di una matrice non simmetrica scritta nella forma \begin{equation*}
+    A = U\Sigma V^{T}
+\end{equation*}
+\begin{itemize}
+    \item $U$ è una matrice ortogonale (ovvero $U^{T}U=UU^{T}=I$)
+    \item $\Sigma$ è una matrice diagonale con i valori singolari sulla diagonale in ordine decrescente
+    \item $V$ è una matrice ortogonale (ovvero $V^{T}V=VV^{T}=I$)
+\end{itemize}
+\subsection{Proprietà}
+Data una matrice $A\in R^{m\times n}$\\
+Immagine: trovare il valore singolare $r$-esimo, ovvero il più piccolo elemento strrettamente maggiore di 0. Per trovare l'immagine scriveremo tutti i vettori $u$ da 1 a $r$: \begin{equation*}
+    R(A) = <u_{1}, u_{2}, \ldots, u_{r}>
+\end{equation*}
+Nucleo: indichiamo con $v$ i vettori che lo compongono, partiranno da $r+1$ fino a $n$:
+\begin{equation*}
+    N(A)=<v_{r+1}, v_{r+2}, \ldots, v_{n}>
+\end{equation*}
+Certi esercizi potrebbero chiedere di determinare i valori singolari delle matrici $A^{T}A, AA^{T}, A^{T}$: esistono proprietà specifiche per questi casi.
+\subsection{Pseudoinversa}
+Dimensione: $\forall A \in \mathbb{R}^{m\times n}: \exists A^{T}\in \mathbb{R}^{m\times n}$
+\end{document} 
