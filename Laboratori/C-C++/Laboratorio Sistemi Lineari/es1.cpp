@@ -75,7 +75,7 @@ void printMatrix(double **matrix, double n, ofstream& file)
         {
             file << matrix[i][j] << " ";
         }
-        file << "\n";
+        file << "<br/>";
     }
 }
 
@@ -135,22 +135,22 @@ int main()
         {3, -1, 1, 2},
         {0, -1, 2, 1}};
 
-    file << "# a) \n";
-    file << "La norma della matrice A e': " << normaInf(A) << "\n";
-    file << "La norma della matrice B e': " << normaInf(B) << "\n";
+    file << "# a)\n";
+    file << "La norma della matrice A e': " << normaInf(A) << "<br/>";
+    file << "La norma della matrice B e': " << normaInf(B) << "<br/>";
 
     int n1 = 10;
     double **P = pascalMatrix(n1);
-    file << "# b) \n";
-    file << "Matrice di Pascal:\n";
+    file << "\n# b)\n";
+    file << "Matrice di Pascal:<br/>";
     printMatrix(P, n1, file);
 
     // Matricola usata: 5462843
     int matricola[7] = {5, 4, 6, 2, 8, 4, 3};
     int n2 = 10 * (matricola[1] + 1) + matricola[0];
     double **T = triMatrix(n2);
-    file << "# c) \n";
-    file << "Matrice tridiagonale:\n";
+    file << "\n# c)\n";
+    file << "Matrice tridiagonale:<br/>";
     printMatrix(T, n2, file);
     file.close();
     return 0;
