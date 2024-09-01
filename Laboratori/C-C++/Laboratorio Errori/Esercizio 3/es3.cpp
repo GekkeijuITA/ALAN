@@ -43,5 +43,6 @@ int main()
     file << "# Più grande d numero intero positivo tale che 1+2^-d > 1 è:\n";
     file << "## Doppia precisione: " << epsD << "\n";
     file << "## Singola precisione: " << epsF << "\n";
+    file.close();
     return 0;
 }

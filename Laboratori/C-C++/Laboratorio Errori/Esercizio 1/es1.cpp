@@ -39,6 +39,6 @@ int main()
 
     file << "(a+b)+c = " << res1 << "\n";
     file << "a+(b+c) = " << res2 << "\n";
-
+    file.close();
     return 0;
 }
