@@ -1,0 +1,129 @@
+\documentclass[12pt]{article}
+\usepackage[italian]{babel}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{Laboratorio Errori}
+\author{Samuele Barrago, Daniele Sacco, Lorenzo Livio Vaccarecci}
+\geometry{margin=2cm}
+\date{}
+
+\begin{document}
+\maketitle
+\section{Primo esercizio}
+\begin{quote}
+    In questo esercizio vogliamo calcolare tramite la matricola del primo componente in ordine alfabetico, due semplici operazioni aritmetiche:
+    \(a+(b+c)\) e \((a+b)+c\) utilizzando variabili di tipo double.
+    \subsection{Calcolo di \(a, b, c\)}
+    \begin{quote}
+        Usando la matricola 5703117, indichiamo con \(d_{0}\) l'ultima cifra della matricola e con \(d_{1}\) la penultima.
+        \begin{flalign*}
+            a &= (d_{0} + 1) \cdot 10^i \text{ con } i = 0, 1, \ldots, 6 \\
+            b &= (d_{1} + 1) \cdot 10^{20} \\
+            c &= -b
+        \end{flalign*}
+    \end{quote}
+    \subsection{Analisi dei risultati}
+    \begin{quote}
+        I risultati ottenuti sono i seguenti:
+        \(a = 6.66667 \cdot 10^6\), \(b = 8 \cdot 10^{20}\) e \(c = -8 \cdot 10^{20}\).
+        \begin{flalign*}
+            (a+b)+c = 6.68467 \cdot 10^6 \\
+            a+(b+c) = 6.66667 \cdot 10^6
+        \end{flalign*}
+        Come si può notare, i risultati sono diversi, ma non di molto.
+        \\ Sappiamo che usando il tipo double, abbiamo la precisione di macchina: \(u=2^{-52}\simeq 2.2\cdot10^{-16}\) e questo è l'errore massimo che si può commettere.
+        \\ Procediamo al calcolo dell'errore relativo:
+        \begin{flalign*}
+            \varepsilon_{relativo} = \left |\frac{6.68467 \cdot 10^6 - 6.66667 \cdot 10^6}{6.68467 \cdot 10^6}\right | = \frac{1.8 \cdot 10^4}{6.68467 \cdot 10^6} = 0.2693 \cdot 10^{-2}
+        \end{flalign*}
+    \end{quote}
+\end{quote}
+\newpage
+\section{Secondo esercizio}
+\begin{quote}
+    Consideriamo come valore "corretto" il valore restituito dalla funzione \texttt{exp()} della libreria standard di C++.
+    \begin{itemize}
+        \item Errore assoluto: $|Taylor-exp|$
+        \item Errore relativo: $\left |\frac{Taylor-exp}{exp}\right |$
+    \end{itemize}
+    \begin{tabular}{| c | c | c | c | c | c | c |}
+        \hline
+        \textbf{Alg} & \textbf{$x$} & \textbf{$N$} & \textbf{Taylor} & \textbf{exp()} & \textbf{Errore assoluto} & \textbf{Errore relativo}\\
+        \hline
+        1 & 0.5 & 3 & 1.64583 & 1.64872 & 0.00289 & 0.00175 \\
+        \hline
+        1 & 0.5 & 10 & 1.64872 & 1.64872 & 0 & 0 \\
+        \hline
+        1 & 0.5 & 50 & 1.64872 & 1.64872 & 0 & 0 \\
+        \hline 
+        1 & 0.5 & 100 & 1.64872 & 1.64872 & 0 & 0 \\
+        \hline
+        1 & 0.5 & 150 & 1.64872 & 1.64872 & 0 & 0 \\
+        \hline
+        1 & 30 & 3 & 4981 & 1.06865e+13 & 4978.62938 & 2100.14087 \\
+        \hline
+        1 & 30 & 10 & 2.3883e+08 & 1.06865e+13 & 1056.17854 & 445.5289 \\
+        \hline
+        1 & 30 & 50 & 1.06833e+13 & 1.06865e+13 & 0.00921 & 0.00389 \\
+        \hline
+        1 & 30 & 100 & 1.06865e+13 & 1.06865e+13 & 0 & 0 \\
+        \hline
+        1 & 30 & 150 & 1.06865e+13 & 1.06865e+13 & 0 & 0 \\
+        \hline
+        1 & -0.5 & 3 & 0.604167 & 0.606531 & 0.00236 & 0.00390 \\
+        \hline
+        1 & -0.5 & 10 & 0.606531 & 0.606531 & 0 & 0 \\
+        \hline
+        1 & -0.5 & 50 & 0.606531 & 0.606531 & 0 & 0 \\
+        \hline
+        1 & -0.5 & 100 & 0.606531 & 0.606531 & 0 & 0 \\
+        \hline
+        1 & -0.5 & 150 & 0.606531 & 0.606531 & 0 & 0 \\
+        \hline
+        1 & -30 & 3 & -4079 & 9.35762e-14 & 4079 & 1.61016$\times10^{17}$ \\
+        \hline
+        1 & -30 & 10 & 1.21255e+08 & 9.35762e-14 & 4.67302 & $1.84465\times10^{14}$ \\
+        \hline
+        1 & -30 & 50 & 8.78229e+08 & 9.35762e-14 & 35388502.93 & $1.39694\times10^{21}$ \\
+        \hline
+        1 & -30 & 100 & -3.42134e-05 & 9.35762e-14 & 0.00213 & $8.42043\times10^{10}$\\
+        \hline
+        1 & -30 & 150 & -3.42134e-05 & 9.35762e-14 & 0.00213 & $8.42043\times10^{10}$ \\
+        \hline
+        2 & -0.5 & 3 & 0.607595 & 1.64872 & 1.04113 & 0.63147 \\
+        \hline
+        2 & -0.5 & 10 & 0.606531 & 1.64872 & 1.04219 & 0.63212 \\
+        \hline
+        2 & -0.5 & 50 & 0.606531 & 1.64872 & 1.04219 & 0.63212 \\
+        \hline
+        2 & -0.5 & 100 & 0.606531 & 1.64872 & 1.04219 & 0.63212 \\
+        \hline
+        2 & -0.5 & 150 & 0.606531 & 1.64872 & 1.04219 & 0.63212 \\
+        \hline
+        2 & -30 & 3 & 0.000201 & 1.06865e+13 & 2.37042 & 0.99992 \\
+        \hline
+        2 & -30 & 10 & 1.31395e-08 & 1.06865e+13 & 2.25806 & 0.95252 \\
+        \hline
+        2 & -30 & 50 & 9.36248e-14 & 1.06865e+13 & 2.37062 & 1 \\
+        \hline
+        2 & -30 & 100 & 9.35762e-14 & 1.06865e+13 & 2.37062 & 1 \\
+        \hline
+        2 & -30 & 150 & 9.35762e-14 & 1.06865e+13 & 2.37062 & 1 \\
+        \hline
+    \end{tabular}
+\end{quote}
+\newpage
+\section{Terzo esercizio}
+\begin{quote}
+    Il più grande numero intero positivo $d$ tale che \begin{equation*}
+        1+2^{-d} > 1
+    \end{equation*}
+    è:
+    \begin{itemize}
+        \item Doppia precisione: $d=53$
+        \item Singola precisione: $d=24$
+    \end{itemize}
+\end{quote}
+\end{document}
