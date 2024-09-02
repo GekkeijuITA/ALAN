@@ -2,6 +2,9 @@
 \usepackage{geometry}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{graphicx}
+
+\graphicspath{{img/}}
 
 \geometry{a4paper, left=1cm, right=1cm, top=0.5cm, bottom=0.5cm}
 
@@ -26,15 +29,10 @@ L'esercizio da due o più algoritmi, per facilitare i calcoli si può scegliere 
 \begin{equation*}
     Err.Inerente = C_{f}\cdot Err.Input
 \end{equation*}
-\begin{itemize}
-    \item $0\leq C_{f}\leq 1$ il problema è ben condizionato
-    \item $C_{f}\leq 10$ il problema è debolmente mal condizionato
-    \item $C_{f}>10$ il problema mal condizionato
-\end{itemize}
 \subsection{Errori negli algoritmi}
 Si disegna il grafo del primo algoritmo partendo da $x$ e ogni nodo sarà composto da un'operazione elementare. Si assegna ad ogni nodo un nome($\varepsilon_{x}$ con $x$ contenuto del nodo) ed a ogni arco la costante moltiplicativa dell'errore, tranne agli input e alle costanti. Per calcolare l'errore di ogni operazione si usano le seguenti formule:
 \begin{equation*}
-    \varepsilon_{a+b}=\frac{a}{a\pm b}\varepsilon_{a}+\frac{b}{a\pm b}\varepsilon_{b}
+    \varepsilon_{a\pm b}=\frac{a}{a\pm b}\varepsilon_{a}\pm\frac{b}{a\pm b}\varepsilon_{b}
 \end{equation*}
 \begin{equation*}
     \varepsilon_{a\cdot b}=\varepsilon_{b}+\varepsilon_{a}
@@ -51,6 +49,8 @@ Prendo tutte le etichette nodo e ci metto tutti i possibili percorsi da quel nod
     \varepsilon\{(I\cdot II\cdot\ldots)+(\ldots)+\ldots\}
 \end{equation*}
 I "..." sono tutti i possibili percorsi.
+\subsection*{Esempio}
+
 \newpage
 \section{Esercizio 2: Rotazioni/Riflessioni}
 \subsection{Rotazioni di Givens}
