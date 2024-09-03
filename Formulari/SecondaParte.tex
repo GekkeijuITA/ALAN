@@ -127,12 +127,22 @@ Si può usare come prova.
 \textbf{NB:} abbiamo visto solo come ottenere una riflessione di Householder nel caso in cui $\alpha$ sia il primo elemento del vettore risultante.
 \begin{enumerate}
     \item Si calcola $\alpha=\lVert x\rVert_{2}$
-    \item Si calcola $u=x-\alpha_{e_{1}}$ (dove $\alpha_{e_{1}}$ è il vettore con al primo posto il valore di $\alpha$ e i restanti valori a 0)
-    \item Si calcola $u^{T}u$
-    \item Si calcola $uu^{T}$
-    \item Infine si calcola P: \begin{equation*}
-        P = I2ww^{T}=I-2\frac{uu^{T}}{u^{T}u}=I-\frac{2}{u^{T}u}\cdot uu^{T}
+    \item Si calcola $u=x-\begin{pmatrix}
+        \alpha \\ 0 \\ \vdots \\ 0
+    \end{pmatrix}$
+    \item Si calcola $u^{T}\bigotimes u \rightarrow \begin{pmatrix}
+        x_{1} \\ x_{2}
+    \end{pmatrix}\bigotimes\begin{pmatrix}
+        y_{1} \\ y_{2}
+    \end{pmatrix}=\begin{pmatrix}
+        x_{1}\cdot y_{1} & x_{1}\cdot y_{2} \\
+        x_{2}\cdot y_{1} & x_{2}\cdot y_{2}
+    \end{pmatrix}$
+    \item Si crea la matrice (quadrata) identità $I$ con dimensione del vettore $x$ 
+    \item Si calcola P: \begin{equation*}
+        P = I-\frac{2}{\lVert u\rVert^{2}}\cdot uu^{T}
     \end{equation*}
+    \item Infine si calcola $Px$ trovando così il vettore risultante
 \end{enumerate}
 \subsubsection{Verifiche}
 \begin{itemize}
