@@ -21,11 +21,18 @@
 \maketitle
 \section{Esercizio 1: Errori}
 \subsection{Condizionamento}
-Il condizionamento è dato dalla formula:
+Calcolare il condizionamento usando l'algoritmo più semplice usando la formula:
 \begin{equation*}
     C_{f}=\frac{x(f'(x))}{f(x)}
 \end{equation*}
-L'esercizio da due o più algoritmi, per facilitare i calcoli si può scegliere il più "facile" per andare avanti con i calcoli. Per discutere il risultato di $C_{f}$, ne calcoliamo il limite; se l'esercizio specifica "per piccoli valori di $x$" calcoliamo il limite che tende a 0, "per piccoli valori positivi di $x$" calcoliamo il limite che dente a $0^{+}$ e per "grandi valori di $x$" calcoliamo il limite che tende a $+\infty$. Il risultato del limite serve per calcolare l'errore inerente:
+Poi calcolarne il limite:
+\begin{itemize}
+    \item "Per piccoli valori di $x$" $\rightarrow \lim_{x \to 0}C_{f}$
+    \item "Per piccoli valori positivi di $x$" $\rightarrow \lim_{x \to 0^{+}}C_{f}$
+    \item "Per grandi valori di $x$" $\rightarrow \lim_{x \to +\infty}C_{f}$
+\end{itemize}
+Se il limite intorno a $\pm 1$ è ben condizionato, altrimenti è mal condizionato.\\
+Il risultato del limite serve per calcolare l'errore inerente:
 \begin{equation*}
     Err.Inerente = C_{f}\cdot Err.Input
 \end{equation*}
