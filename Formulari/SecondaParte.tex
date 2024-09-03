@@ -37,25 +37,24 @@ Il risultato del limite serve per calcolare l'errore inerente:
     Err.Inerente = C_{f}\cdot Err.Input
 \end{equation*}
 \subsection{Errori negli algoritmi}
-Si disegna il grafo del primo algoritmo partendo da $x$ e ogni nodo sarà composto da un'operazione elementare. Si assegna ad ogni nodo un nome($\varepsilon_{x}$ con $x$ contenuto del nodo) ed a ogni arco la costante moltiplicativa dell'errore, tranne agli input e alle costanti. Per calcolare l'errore di ogni operazione si usano le seguenti formule:
-\begin{equation*}
-    \varepsilon_{a\pm b}=\frac{a}{a\pm b}\varepsilon_{a}\pm\frac{b}{a\pm b}\varepsilon_{b}
-\end{equation*}
-\begin{equation*}
-    \varepsilon_{a\cdot b}=\varepsilon_{b}+\varepsilon_{a}
-\end{equation*}
-\begin{equation*}
-    \varepsilon_{a/b}=\varepsilon_{b}-\varepsilon_{a}
-\end{equation*}
-\begin{equation*}
-    \varepsilon_{g(x)}=C_{g(x)}\cdot \varepsilon_{x}
-\end{equation*}
-Si calcola l'errore algoritmico sommando tutti gli errori partendo dal nodo etichettato con quell'errore moltiplicando le costanti moltiplicative fino al nodo finale, in caso di più cammini vengono sommate le varie parti (ovvero le moltiplicazioni). Per verificare che l'algoritmo sia stabile si calcola il limite che tende al valore dato nel testo (vedi 1.1) di ogni errore (ovvero quello dentro le parentesi); se il limite viene $\infty$ allora l'algoritmo è instabile (basta che ci sia una parte che tende a infinito per poter dire che l'algoritmo è instabile) se invece il risultato del limite è finito per tutti i casi, allora l'algoritmo è stabile (bisogna calcolare tutti i limiti per poterlo dire).\\
-Prendo tutte le etichette nodo e ci metto tutti i possibili percorsi da quel nodo fino alla fine
-\begin{equation*}
+Si disegnano i grafi degli algoritmi e l'etichetta degli archi è:
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        $a\pm b$ & $\varepsilon_{a\pm b}=\frac{a}{a\pm b}\varepsilon_{a}\pm\frac{b}{a\pm b}\varepsilon_{b}$\\
+        \hline
+        $a\cdot b$ & $\varepsilon_{a\cdot b}=\varepsilon_{b}+\varepsilon_{a}$\\
+        \hline
+        $\frac{a}{b}$ & $\varepsilon_{\frac{a}{b}}=\varepsilon_{b}-\varepsilon_{a}$\\
+        \hline
+        $g(x)$ & $\varepsilon_{g(x)}=C_{g(x)}\cdot \varepsilon_{x}$\\
+        \hline
+    \end{tabular}
+\end{center}
+Per ogni nodo (a partire dal fondo) si apre una parentesi e dentro si moltiplicano tutti gli archi a partire da quel nodo fino alla fine, se ci sono percorsi alternativi si fa la somma dei percorsi.\begin{equation*}
     \varepsilon\{(I\cdot II\cdot\ldots)+(\ldots)+\ldots\}
 \end{equation*}
-I "..." sono tutti i possibili percorsi.
+Per verificare la stabilità dell'algoritmo bisogna fare il limite  di tutti gli archi e se viene finito (per tutti gli archi) è stabile, altrimenti è instabile (ne basta uno per verificarlo).
 \subsection*{Esempio}
 
 \newpage
