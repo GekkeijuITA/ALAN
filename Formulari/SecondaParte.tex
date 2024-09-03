@@ -73,15 +73,10 @@ dove $i$ rappresenta la posizione del perno all'interno della matrice, $j$ la po
 \end{equation*}
 Si costruisce la matrice quadrata (della stessa dimensione dei vettori) inserendo $c$ e $s$:
 \begin{itemize}
-    \item $c$ in ($i,i$) e ($j,j$)
-    \item $s$ in ($i,j$), se $i>j$ allora in ($j,i$)
-    \item $-s$ in ($j,i$), se $i>j$ allora in ($i,j$)
-\end{itemize}
-\begin{itemize}
     \item $c$ e $-s$ è la riga $i$
     \item $c$ e $s$ è la riga $j$ 
 \end{itemize}
-$c$ va nella diagonale, $s$ e $-s$ bisogna posizionarli in modo da averli sotto/sopra a $c$.
+$c$ va nella diagonale, $s$ e $-s$ bisogna posizionarli nella colonna dove c'è l'altro $c$.
 \subsubsection*{Esempio}
 \textbf{NB:} le posizioni partono da 1 e non da 0.
 \begin{equation*}
