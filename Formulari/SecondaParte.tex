@@ -153,26 +153,6 @@ Si può usare come prova.
 Si scrive: $P=(\ldots)$ riflette $x=\left(\vdots\right)$ rispetto al piano perpendicolare (al vettore $w$)
 \subsubsection*{Esempio}
 \section*{Esercizio 3: Minimi quadrati}
-Dati i valori di $x$ e $y$
-\begin{enumerate}
-    \item Si disegna il grafico con i valori di $x$ e $y$
-    \item Si costruisce la matrice $A$: \begin{itemize}
-        \item Se nel testo ci sono parametri (può anche essere semplicemente l'equazione della parabola) ogni colonna di $A$ contiene tutti i valori usando le $x$, se c'è un parametro che non moltiplica si mette la colonna tutta a 1
-        \item Se non ci sono parametri (caso della retta) si mettono le $x$ nella prima colonna e nella seconda colonna tutti 1
-    \end{itemize}
-    \item Si costruisce il vettore $b$ con i valori di $y$
-    \item Si calcola $A^{T}A$ e $A^{T}b$
-    \item Si risolve il sistema: \begin{itemize}
-        \item Senza parametri (caso della retta): $A^{T}A\cdot\begin{pmatrix}
-            p \\ q
-        \end{pmatrix} = A^{T}b$
-        \item Con parametri: $A^{T}A\cdot\begin{pmatrix}
-            x \\ y \\ z \\ \ldots
-        \end{pmatrix} = A^{T}b$
-    \end{itemize}
-\end{enumerate}
-Infine, scrivere la funzione risultante con i valori trovati.
-\subsection{Mia versione di come farlo}
 \begin{equation*}
     f(x) = \alpha g(x)\pm \beta h(x) \pm \ldots \pm \gamma k(x)
 \end{equation*}
@@ -201,6 +181,9 @@ Infine, scrivere la funzione risultante con i valori trovati.
 \subsection{Interpretazione geometrica}
 Disegnare il grafico con i punti e la funzione ricavata, evidenziando le distanze tra i punti dati e il grafico. In più si può scrivere: "la retta di regressione minimizza la somma degli scarti tra i valori di $y$ dei punti ed i valori (equazione del grafico) dell* (nome funzione) calcolat* nelle ascisse $x$ dei punti dati".
 \subsection{Esempio}
+\begin{center}
+    \includegraphics[scale=0.4]{es3pt2.png}
+\end{center}
 \section*{Esercizio 4: Diagonalizzazione}
 \begin{enumerate}
     \item Controllare se $A$ è simmetrica, se lo è, allora è diagonalizzabile
