@@ -174,7 +174,7 @@ Dati i valori di $x$ e $y$
 Infine, scrivere la funzione risultante con i valori trovati.
 \subsection{Mia versione di come farlo}
 \begin{equation*}
-    f(x) = \alpha g(x)\pm \beta h(x)
+    f(x) = \alpha g(x)\pm \beta h(x) \pm \ldots \pm \gamma k(x)
 \end{equation*}
 \begin{tabular}{c | c}
     x & $x_{1}$ $x_{2}$ \ldots $x_{n}$\\
@@ -184,17 +184,19 @@ Infine, scrivere la funzione risultante con i valori trovati.
 \begin{equation*}
     A =
     \begin{pmatrix}
-        g(x_{1}) & h(x_{1}) \\
-        g(x_{2}) & h(x_{2}) \\
-        \vdots & \vdots \\
-        g(x_{n}) & h(x_{n})
+        g(x_{1}) & h(x_{1}) & \ldots & \gamma k(x_{1})\\
+        g(x_{2}) & h(x_{2}) & \ldots & \gamma k(x_{2})\\
+        \vdots & \vdots & \ddots & \vdots\\
+        g(x_{n}) & h(x_{n}) & \ldots & \gamma k(x_{n})
     \end{pmatrix}
 \end{equation*}
 \begin{itemize}
-    \item Se ci sono le costanti $\alpha$ e $\beta$, allora $h(x)$ è sempre 1
+    \item Se c'è solo la costante senza funzione associata, la sua colonna corrispondente sarà composta solo da 1
     \item Matrice incognite: $A^{T}A$
-    \item Matrice soluzioni: $A^{T}b$
-    \item Le metto a sistema, isolo $\alpha$ e $\beta$ e sostituisco a $f(x)$
+    \item Matrice soluzioni: $A^{T}\begin{pmatrix}
+        y_{1} \\ y_{2} \\ \vdots \\ y_{n}
+    \end{pmatrix}$
+    \item Usiamo la matrice delle incognite per costruire il sistema e poniamo ogni riga uguale al corrispondente valore della matrice soluzioni
 \end{itemize}
 \subsection{Interpretazione geometrica}
 Disegnare il grafico con i punti e la funzione ricavata, evidenziando le distanze tra i punti dati e il grafico. In più si può scrivere: "la retta di regressione minimizza la somma degli scarti tra i valori di $y$ dei punti ed i valori (equazione del grafico) dell* (nome funzione) calcolat* nelle ascisse $x$ dei punti dati".
