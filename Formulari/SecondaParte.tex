@@ -56,8 +56,6 @@ Per ogni nodo (a partire dal fondo) si apre una parentesi e dentro si moltiplica
 \end{equation*}
 Per verificare la stabilità dell'algoritmo bisogna fare il limite tendente a $0^{+}$ di tutti gli archi e se viene finito (per tutti gli archi) è stabile, altrimenti è instabile (ne basta uno per verificarlo).
 \subsection*{Esempio}
-
-\newpage
 \section{Esercizio 2: Rotazioni/Riflessioni}
 \subsection{Rotazioni di Givens}
 Si indica una rotazione di Givens con:
@@ -76,48 +74,12 @@ Si costruisce la matrice quadrata (della stessa dimensione dei vettori) inserend
     \item $c$ e $-s$ nella riga $i$
     \item $c$ e $s$ nella riga $j$ 
 \end{itemize}
-$c$ va nella diagonale, $s$ e $-s$ bisogna posizionarli nella colonna dove c'è l'altro $c$.
+$c$ va nella diagonale, $s$ e $-s$ bisogna posizionarli nella colonna dove c'è l'altro $c$.\\
+Si moltiplica la matrice per il vettore iniziale per ottenere il vettore finale/intermedio $\gamma$. Usiamo $\gamma$ per fare un'altra rotazione fino a quando non è uguale al vettore finale.\\
 \subsubsection*{Esempio}
-\textbf{NB:} le posizioni partono da 1 e non da 0.
-\begin{equation*}
-    \begin{pmatrix}
-        x_{1} \\ 0 \\ 0
-    \end{pmatrix}
-    \quad
-    \begin{pmatrix}
-        0 \\ \beta \\ 0
-    \end{pmatrix}
-\end{equation*}
-\begin{equation*}
-    G(i,j,\theta) \quad i=pos_{\beta}, j=\text{posizione da azzerare}\rightarrow G(2,1,\theta)
-\end{equation*}
-\begin{equation*}
-    s = \frac{-x_{j}}{\sqrt{x_{i}^{2}+x_{j}^{2}}} = \frac{-x_{1}}{\sqrt{0+x_{1}^{2}}}= -1
-\end{equation*}
-\begin{equation*}
-    c = \frac{x_{i}}{\sqrt{x_{i}^{2}+x_{j}^{2}}} = \frac{0}{\sqrt{0+x_{1}^{2}}} = 0
-\end{equation*}
-\begin{equation*}
-    \begin{pmatrix}
-        c & s & 0 \\
-        -s & c & 0 \\
-        0 & 0 & 1
-    \end{pmatrix} =  \begin{pmatrix}
-        0 & -1 & 0 \\
-        1 & 0 & 0 \\
-        0 & 0 & 1
-    \end{pmatrix}\rightarrow \begin{pmatrix}
-        0 & -1 & 0 \\
-        1 & 0 & 0 \\
-        0 & 0 & 1
-    \end{pmatrix}\cdot
-    \begin{pmatrix}
-        x_{1} \\ 0 \\ 0
-    \end{pmatrix} = \begin{pmatrix}
-        0 \\ x_{1} \\ 0
-    \end{pmatrix}
-\end{equation*}
-Si esegue la moltiplicazione e, se necessario, si ripete il processo usando il nuovo vettore ottenuto dalla moltiplicazione fino a quando non si raggiunge lo stesso "layout" del vettore con $\beta$.
+\begin{center}
+    \includegraphics[scale=0.3]{givens.png}
+\end{center}
 \subsubsection{Interpretazione geometrica}
 Per ogni rotazione, scrivere su che piano è stata fatta, ad esempio con la rotazione $G(2,1,\theta)$ si può dire: "si tratta di una rotazione nel piano $<e_{2},e_{1}>$". Visto che sono tutte isometrie: \begin{equation*}
     \lVert \text{vettore iniziale} \rVert = \lVert \text{vettore finale} \rVert
@@ -192,8 +154,8 @@ Disegnare il grafico con i punti e la funzione ricavata, evidenziando le distanz
     \item Controllare se $A$ è simmetrica, se lo è, allora è diagonalizzabile
     \item Trovare gli autovalori risolvendo \begin{equation*}
         \det(A-\lambda I)=0
-    \end{equation*} e riordinarli per il massimo modulo (non strettamente necessario ?)
-    \item Verificare la cardinalità degli autovalori (uguale all'ordine della matrice)
+    \end{equation*} e ordinarli in ordine decrescente
+    \item Verificare che la quantità di autovalori sia uguale all'ordine della matrice (es. una $2\times 2$ ha ordine 2), altrimenti non è diagonalizzabile
     \item Per ogni autovalore trovare gli autovettori usando la matrice $A-\lambda I$ (sostituendo a $\lambda$ l'autovalore) e risolvendo il sistema \begin{equation*}
         \begin{pmatrix}
             A - \lambda I
@@ -206,16 +168,28 @@ Disegnare il grafico con i punti e la funzione ricavata, evidenziando le distanz
             0 \\ 0 \\ \vdots \\ 0
         \end{pmatrix}
     \end{equation*}
+    \item Normalizzare gli autovettori usando: $\frac{x_{i}}{\lVert v\rVert}$ dove $v$ è l'autovettore e $x_{i}$ è l'elemento $i$-esimo dell'autovettore, controllare se sono indipendenti tra di loro altrimenti non è diagonalizzabile
     \item Creare la matrice $V$ composta dagli autovettori, e la sua inversa
-    \item Creare la matrice $D$ usando gli autovalori nello stesso ordine degli autovettori. Si otterrà la diagonalizzazione della matrice di partenza composta nel seguente modo: \begin{equation*}
+    \item Creare la matrice $D$ usando gli autovalori in ordine decrescente sulla diagonale. $\begin{pmatrix}
+        \lambda_{1} & 0 & \ldots & 0\\
+        0 & \lambda_{2} & \ldots & 0\\
+        \vdots & \vdots & \ddots & \vdots\\
+        0 & 0 & \ldots & \lambda_{n}
+    \end{pmatrix}$
+    \item Si otterrà la diagonalizzazione della matrice di partenza composta nel seguente modo: \begin{equation*}
         A = VDV^{-1}
     \end{equation*}
 \end{enumerate}
+\subsubsection*{Esempio}
+\begin{center}
+    \includegraphics[scale=0.4]{es4pt2.png}
+\end{center}
 \subsection{Convergenza: Metodo delle potenze}
 Converge all'autovalore di massimo modulo
 \begin{enumerate}
     \item Si riordinano gli autovalori in base al massimo modulo, ottenendo $\lambda_{1}$, $\lambda_{2}, \ldots, \lambda_{n}$ dove $\lambda_{1}$ è l'autovalore di massimo modulo
     \item Converge se $\lambda_{1}>\lambda_{2}$
+    \item $k$ il numero di volte in cui si esegue la moltiplicazione $v_{i} = A\cdot v_{i-1}$, $v_{n}=A\cdot v_{n-1}=A^{2}\cdot v_{n-2} = \ldots = A^{n}\cdot v_{0}$
     \item Si trova la velocità di convergenza con: \begin{equation*}
         V=\left(\frac{\lambda_{2}}{\lambda_{1}}\right)^{k}
     \end{equation*}
@@ -261,7 +235,6 @@ Una spline è periodica se:
     \lim_{x\to e_{1}^{-}}S''(x)=\lim_{x\to e_{2}^{+}}S''(x)
 \end{equation*}
 Dove $e_{1}$ e $e_{2}$ sono i due estremi (sinistro e destro rispettivamente) della spline.
-\newpage
 \section{Esercizio 5: Condizionamento matrice e di una norma}
 Per verificare se la matrice $A^{-1}$ è l'inversa bisogna vedere se $\det(A)\neq 0$ e se $A^{-1}A=I$. Per calcolare il condizionamento relativo ad una norma, bisogna fare:
 \begin{equation*}
