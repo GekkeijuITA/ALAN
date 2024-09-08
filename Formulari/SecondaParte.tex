@@ -229,32 +229,27 @@ $S(x)=\begin{cases}
     \item Interpolazione: controllare se $S(x_{i})=h(x_{i})$ per tutti i nodi richiesti, con $h(x)$ funzione interpolante
     \item S è naturale se $S''(a)=S''(c)=0$
 \end{enumerate}
+\subsubsection*{Esempio}
+\begin{center}
+    \includegraphics[scale=0.6]{spline.png}
+\end{center}
 \section{Esercizio 5: Condizionamento matrice e di una norma}
-Per verificare se la matrice $A^{-1}$ è l'inversa bisogna vedere se $\det(A)\neq 0$ e se $A^{-1}A=I$. Per calcolare il condizionamento relativo ad una norma, bisogna fare:
-\begin{equation*}
-    \lVert A \rVert_{nm}
-\end{equation*}
-\begin{equation*}
-    \lVert A^{-1} \rVert_{nm}
-\end{equation*}
-dove $nm$ indica la norma in questione. Poi $M(A)=\lVert A \rVert_{nm}\cdot \lVert A^{-1} \rVert_{nm}$ per calcolare la maggiorazione dell'errore:
-\begin{equation*}
-    \varepsilon_{x}=\frac{\lVert \bar{x} -x \rVert_{nm}}{\lVert x \rVert_{nm}}
-\end{equation*}
-\begin{equation*}
-    \varepsilon_{b}=\frac{\lVert \delta b \rVert_{nm}}{\lVert b \rVert_{nm}}
-\end{equation*}
-\begin{equation*}
-    \varepsilon_{x}\leq u(A)\varepsilon_{b}
-\end{equation*}
-Quindi se l'esercizio chiede di calcolare una maggiorazione, basta calcolarsi $u(A)$ e $\varepsilon_{b}$
+\begin{enumerate}
+    \item Verificare se la matrice $A$ è invertibile (ovvero $\det(A)\neq 0$)
+    \item Verificare se la matrice $A^{-1}$ è l'inversa di $A$ (ovvero $A^{-1}A=I$)
+    \item Calcolare le norme
+    \item Risolvere il sistema lineare dato dall'equazione $A\bar{x}=\delta b$ per trovare $\bar{x}$
+    \item Calcolare la maggiorazione dell'errore: \begin{equation*}
+        \varepsilon_{x}=\frac{\lVert \bar{x} -x \rVert_{k}}{\lVert x \rVert_{k}} \leq (\lVert A^{-1}\rVert\cdot\lVert A\rVert)\varepsilon_{b}, \quad \varepsilon_{b}=\frac{\lVert \delta b \rVert_{nm}}{\lVert b \rVert_{nm}}
+    \end{equation*}
+\end{enumerate}
 \subsection{Norme}
 \subsubsection{Vettori}
 \begin{equation*}
-    \lVert x \rVert_{1} = \sum_{i=1}^{n}\lvert x_{i} \rvert
+    \lVert x \rVert_{1} = \lvert x_{1} \rvert + \lvert x_{2} \rvert + \ldots + \lvert x_{n} \rvert
 \end{equation*}
 \begin{equation*}
-    \lVert x \rVert_{2} = \sqrt{\sum_{i=1}^{n}x_{i}^{2}} = \sqrt{x^{T}x}
+    \lVert x \rVert_{2} = \sqrt{x_{1}^{2}+x_{2}^{2}+\ldots+x_{n}^{2}}
 \end{equation*}
 \begin{equation*}
     \lVert x \rVert_{\infty} = \max_{1\leq i\leq n}\lvert x_{i} \rvert
@@ -264,11 +259,12 @@ Quindi se l'esercizio chiede di calcolare una maggiorazione, basta calcolarsi $u
     \lVert A \rVert_{1} = \max_{1\leq j\leq n}\sum_{i=1}^{n}\lvert a_{ij} \rvert
 \end{equation*} (Somma di tutti gli elementi in modulo di una colonna e prendo il massimo)
 \begin{equation*}
-    \lVert A \rVert_{2}
-\end{equation*} Esiste ma non calcolabile esplicitamente
-\begin{equation*}
     \lVert A \rVert_{\infty} = \max_{1\leq i\leq n}\sum_{j=1}^{n}\lvert a_{ij} \rvert
 \end{equation*} (Somma di tutti gli elementi in modulo di una riga e prendo il massimo)
+\subsubsection*{Esempio}
+\begin{center}
+    \includegraphics[scale=0.3]{condizionamento.jpeg}
+\end{center}
 \section{Esercizio 5: SVD}
 Una SVD viene utilizzata per trovare una diagonalizzazione di una matrice non simmetrica scritta nella forma \begin{equation*}
     A = U\Sigma V^{T}
@@ -279,6 +275,9 @@ Una SVD viene utilizzata per trovare una diagonalizzazione di una matrice non si
     \item $V$ è una matrice ortogonale (ovvero $V^{T}V=I$ oppure $VV^{T}=I$)
 \end{itemize}
 \subsubsection*{Esempio di sistema cubico}
+\begin{center}
+    \includegraphics[scale=0.4]{sistemacubico.png}
+\end{center}
 $\begin{pmatrix}
     1 & 2 & 3\\
     4 & 5 & 6\\
@@ -309,4 +308,6 @@ Nucleo: indichiamo con $v$ i vettori che lo compongono, partiranno da $r+1$ fino
 Certi esercizi potrebbero chiedere di determinare i valori singolari delle matrici $A^{T}A, AA^{T}, A^{T}$: esistono proprietà specifiche per questi casi.
 \subsection{Pseudoinversa}
 Dimensione: $\forall A \in \mathbb{R}^{m\times n}: \exists A^{T}\in \mathbb{R}^{m\times n}$
+\subsubsection*{Esempio}
+\includegraphics[width=\textwidth]{svd.png}
 \end{document} 
