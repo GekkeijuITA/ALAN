@@ -101,11 +101,11 @@
             \hline
             Esercizio 4 & \begin{itemize}
                 \item I vettori $v_{1},\ldots ,v_{n}$ sono base di $R^{N}$ se $\text{rk}(M)=N$ con $M=(v_{1}\ldots v_{n})$ (M matrice composta dai vettori)
-                \item Base ortogonale di v,w: $\begin{pmatrix}
+                \item Base ortogonale di $v,w$: $\begin{pmatrix}
                     \det(R_{2}R_{3}) \\
                     -\det(R_{1}R_{3}) \\
                     \det(R_{1}R_{2})
-                \end{pmatrix}$, $R_{i}$ sono le righe dei vettori
+                \end{pmatrix}$, $R_{i}$ sono le righe dei vettori. $v,w$ devono essere ortogonali 
                 \item Dipendenza lineare: $\alpha v_{1}+\beta v_{2} +\ldots + kv_{n} = 0$ oppure la matrice composta dai vettori non ha rango $N$
                 \item Indipendenza lineare: $\alpha v_{1}+\beta v_{2}+\ldots+ kv_{n} = 0 \rightarrow \alpha = \beta = 0$ oppure la matrice composta dai vettori ha rango $N$
                 \item $v_{3}=\begin{pmatrix}
@@ -115,7 +115,7 @@
                 \end{pmatrix}$ se $\frac{x_{3}}{x_{1}}=\frac{y_{3}}{y_{1}}=\frac{z_{3}}{z_{1}}=\alpha$
                 \item Per "generare" $R^{N}$ i vettori combinati linearmente fanno ottenere qualsiasi vettore in $R^{N}$. Gli N vettori in questione devono essere linearmente indipendenti.
                 \item $v_{2} \notin \langle v_{1} \rangle$ significa che $v_{2}$ non appartiene allo spazio generato da $v_{1}$ e quindi $v_{2}$ non deve essere multiplo scalare di $v_{1}$
-                \item Due vettori $v_1$ e $v_2$ sono ortogonali tra loro quando il loro prodotto scalare e' 0, ovvero $v_{1} \cdot v_{2} = v_{1x} \cdot v_{2x} + v_{1y} \cdot v_{2y} + v_{1z} \cdot v_{2z} = 0$
+                \item Due vettori $v_1$ e $v_2$ sono ortogonali tra loro quando il loro prodotto scalare e' 0
                 \item Norma vettore $||v|| = \sqrt{v_{1}^{2} + v_{2}^{2}}$, per "allungare" un vettore a una lunghezza L si usa la formula $v' = L\cdot \frac{1}{||v||}\cdot v$
             \end{itemize}\\
             \hline
@@ -127,7 +127,7 @@
                 \item Il prodotto di due matrici diagonali è diagonale, una matrice diagonale non è per forza invertibile (potrebbe avere degli zeri nella diagonale) e ogni matrice diagonale è simmetrica
                 \item Teorema di Binét: $\det(AB)=\det A \cdot \det B$
                 \item Calcolo matrice inversa: scriviamo $(M|I)$, eseguiamo Gauss (da entrambe le parti), gli elementi sopra il pivot li poniamo tutti a 0 (sempre alla Gauss dal basso verso l'alto), otteniamo $(I|M^{-1})$
-                \item $\begin{pmatrix}
+                \item Prodotto scalare: $\begin{pmatrix}
                     x_{1} \\ y_{1} \\ z_{1}
                 \end{pmatrix}\cdot \begin{pmatrix}
                     x_{2} \\ y_{2} \\ z_{2}
