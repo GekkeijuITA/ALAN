@@ -318,12 +318,12 @@ $\begin{pmatrix}
 Uso le colonne delle incognite $x$ e la soluzione associata è sempre nella colonna delle soluzioni\\
 \subsection{Proprietà}
 Data una matrice $A\in R^{m\times n}$\\
-Immagine: trovare il valore singolare $r$-esimo, ovvero il più piccolo elemento strrettamente maggiore di 0. Per trovare l'immagine scriveremo tutti i vettori $u$ da 1 a $r$: \begin{equation*}
-    R(A) = <u_{1}, u_{2}, \ldots, u_{r}>
+Immagine: composta dalle colonne ($u$) di $U$ corrispondenti ai valori singolari non nulli (es. se il valore non nullo è nella colonna 1 in $\Sigma$, prendiamo la colonna 1 di $U$): \begin{equation*}
+    \mathcal{R}(A) = <u_{1}, u_{2}, \ldots, u_{k}>
 \end{equation*}
-Nucleo: indichiamo con $v$ i vettori che lo compongono, partiranno da $r+1$ fino a $n$:
+Nucleo: composto dalle colonne ($v$) di $V$ corrispondenti ai valori singolari nulli (es. se il valore nullo è nella colonna 1 in $\Sigma$, prendiamo la colonna 1 di $V$):
 \begin{equation*}
-    N(A)=<v_{r+1}, v_{r+2}, \ldots, v_{n}>
+    \mathcal{N}(A)=<v_{1}, v_{2}, \ldots, v_{k}>
 \end{equation*}
 Certi esercizi potrebbero chiedere di determinare i valori singolari delle matrici $A^{T}A, AA^{T}, A^{T}$: esistono proprietà specifiche per questi casi.
 \subsection{Pseudoinversa}
