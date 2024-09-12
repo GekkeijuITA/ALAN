@@ -198,10 +198,9 @@ Si scrive la matrice come $(A|I)$ dove $I$ è la matrice identità della stessa 
 Converge all'autovalore di massimo modulo
 \begin{enumerate}
     \item Si riordinano gli autovalori in base al massimo modulo, ottenendo $\lambda_{1}$, $\lambda_{2}, \ldots, \lambda_{n}$ dove $\lambda_{1}$ è l'autovalore di massimo modulo
-    \item Converge se $\lambda_{1}>\lambda_{2}$
-    \item $k$ il numero di volte in cui si esegue la moltiplicazione $v_{i} = A\cdot v_{i-1}$, $v_{n}=A\cdot v_{n-1}=A^{2}\cdot v_{n-2} = \ldots = A^{n}\cdot v_{0}$
+    \item Converge se $\lvert\lambda_{1}\rvert>\lvert\lambda_{2}\rvert$
     \item Si trova la velocità di convergenza con: \begin{equation*}
-        V=\left(\frac{\lambda_{2}}{\lambda_{1}}\right)^{k}
+        V=\left\lvert\frac{\lambda_{2}}{\lambda_{1}}\right\rvert
     \end{equation*}
 \end{enumerate} 
 \subsection{Convergenza: Metodo delle potenze inverse}
@@ -213,7 +212,7 @@ Converge all'autovalore di massimo modulo
     Per ogni $\lambda$
     \item $\mu_{1}$ sarà quello con $\lvert\lambda_{j}-p\rvert$ più piccolo, mentre $\mu_{2}$ sarà il secondo di minimo modulo
     \item La velocità di convergenza si calcola: \begin{equation*}
-        V = \left(\frac{\mu_{2}}{\mu_{1}}\right)^{k}
+        V = \left\lvert\frac{\mu_{2}}{\mu_{1}}\right\rvert
     \end{equation*}
 \end{enumerate}
 Se si hanno due autovalori con lo stesso modulo massimo, allora non converge.
