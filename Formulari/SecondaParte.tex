@@ -3,6 +3,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{lipsum}
 
 \graphicspath{{img/}}
 
@@ -187,6 +188,11 @@ Disegnare il grafico con i punti e la funzione ricavata, evidenziando le distanz
 \begin{center}
     \includegraphics[scale=0.4]{es4pt2.png}
 \end{center}
+\subsubsection{Matrice Inversa}
+Si scrive la matrice come $(A|I)$ dove $I$ è la matrice identità della stessa dimensione di $A$. Si esegue Gauss da entrambe le parti, poi si cerca di trasformare i pivot ottenuti in 1 (l'operazione algebrica per ottenerlo la si applica su tutta la riga), infine si esegue Gauss "dal basso verso l'alto". Si avrà quindi $(I|A^{-1})$.
+\begin{center}
+    \includegraphics[scale=0.5]{inversa.png}
+\end{center}
 \subsection{Convergenza: Metodo delle potenze}
 Converge all'autovalore di massimo modulo
 \begin{enumerate}
@@ -200,16 +206,23 @@ Converge all'autovalore di massimo modulo
 \subsection{Convergenza: Metodo delle potenze inverse}
 \begin{enumerate}
     \item Dato uno shift $p$, bisogna trovare l'autovalore più vicino a $p(\lambda_{1})$ ed il secondo più vicino a $p(\lambda_{2})$
-    \item Si calcola \begin{equation*}
+    \item Si calcola (da $(A-pI)^{-1}$): \begin{equation*}
         \mu_{1} = \frac{1}{\lambda_{1}-p}
     \end{equation*}
     Per ogni $\lambda$
-    \item $\mu_{1}$ sarà quello di massimo modulo tra tutti i $\mu$ calcolati, mentre $\mu_{2}$ sarà il secondo di massimo modulo
+    \item $\mu_{1}$ sarà quello con $\lvert\lambda_{j}-p\rvert$ più piccolo, mentre $\mu_{2}$ sarà il secondo di minimo modulo
     \item La velocità di convergenza si calcola: \begin{equation*}
         V = \left(\frac{\mu_{2}}{\mu_{1}}\right)^{k}
     \end{equation*}
 \end{enumerate}
 Se si hanno due autovalori con lo stesso modulo massimo, allora non converge.
+\vspace{5pt}
+\hrule
+\vspace{5pt}
+Per ogni coppia $\lambda_{1},\lambda_{2}$ si esegue la disequazione: \begin{equation*}
+    \lvert \lambda_{1}-p \rvert < \lvert \lambda_{2}-p \rvert
+\end{equation*}
+e si isola la $p$ e possiamo dire che la matrice converge a $\lambda_{1}$ per quella $p$.
 \section{Esercizio 5: Spline}
 $S(x)=\begin{cases}
     f(x) & \text{se } x\in [a,b]\\
