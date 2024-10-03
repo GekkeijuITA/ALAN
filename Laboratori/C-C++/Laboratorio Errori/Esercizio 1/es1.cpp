@@ -22,7 +22,7 @@ int main()
         file << matricola[i];
     }
 
-    for (int i = 0; i < MATR_LEN; i++)
+    for (int i = 0; i < 7; i++)
     {
         double a = (matricola[0] + 1) * pow(10, i);
         double b = (matricola[1] + 1) * pow(10, 20);
