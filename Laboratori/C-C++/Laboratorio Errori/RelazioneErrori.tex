@@ -4,6 +4,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{array}
+\usepackage{tikz}
+
 
 \title{Laboratorio Errori}
 \author{Samuele Barrago [5703117], Daniele Sacco [5616921], Lorenzo Livio Vaccarecci [5462843]}
@@ -27,44 +29,31 @@
     \end{quote}
     \subsection{Analisi dei risultati}
     \begin{center}
-        \begin{tabular}{| c | c | c | c | c |}
+        \begin{tabular}{| c | c | c | c | c | c |}
             \hline
-            \textbf{a} & \textbf{b} & \textbf{c} & \textbf{(a+b)+c} & \textbf{a+(b+c)} \\
+            \textbf{i} & \textbf{a} & \textbf{b} & \textbf{c} & \textbf{(a+b)+c} & \textbf{a+(b+c)} \\
             \hline
-            $6\cdot 10^{0}$  & $8 \cdot 10^{20}$ & $-8 \cdot 10^{20}$ & 0 & 6\\
+            0 &$6\cdot 10^{0}$  & $8 \cdot 10^{20}$ & $-8 \cdot 10^{20}$ & 0 & 6\\
             \hline
-            $6\cdot 10^{1}$ & $8 \cdot 10^{20}$ & $-8 \cdot 10^{20}$ & 0 & 60\\
+            1 &$6\cdot 10^{1}$ & $8 \cdot 10^{20}$ & $-8 \cdot 10^{20}$ & 0 & 60\\
             \hline
-            $6\cdot 10^{2}$ & $8 \cdot 10^{20}$ & $-8 \cdot 10^{20}$ & 0 & 600\\
+            2 &$6\cdot 10^{2}$ & $8 \cdot 10^{20}$ & $-8 \cdot 10^{20}$ & 0 & 600\\
             \hline
-            $6\cdot 10^{3}$ & $8 \cdot 10^{20}$ & $-8 \cdot 10^{20}$ & 0 & 6000\\
+            3 &$6\cdot 10^{3}$ & $8 \cdot 10^{20}$ & $-8 \cdot 10^{20}$ & 0 & 6000\\
             \hline
-            $6\cdot 10^{4}$ & $8 \cdot 10^{20}$ & $-8 \cdot 10^{20}$ & 0 & 60000\\
+            4 &$6\cdot 10^{4}$ & $8 \cdot 10^{20}$ & $-8 \cdot 10^{20}$ & 0 & 60000\\
             \hline
-            $6\cdot 10^{5}$ & $8 \cdot 10^{20}$ & $-8 \cdot 10^{20}$ & 655360 & 600000\\
+            5 &$6\cdot 10^{5}$ & $8 \cdot 10^{20}$ & $-8 \cdot 10^{20}$ & 655360 & 600000\\
             \hline
-            $6\cdot 10^{6}$ & $8 \cdot 10^{20}$ & $-8 \cdot 10^{20}$ & $6.03\cdot 10^{6}$ & $6\cdot 10^{6}$ \\
+            6 &$6\cdot 10^{6}$ & $8 \cdot 10^{20}$ & $-8 \cdot 10^{20}$ & $6.03\cdot 10^{6}$ & $6\cdot 10^{6}$ \\
             \hline
         \end{tabular}
     \end{center}
-    Discutiamo da subito i risultati dell'operazione $a+(b+c)$ che sono quelli che ci si aspetta in quanto la prima operazione che viene fatta è la somma tra opposti di conseguenza avremo $a+0$.\\
-    Quello che è interessante è il risultato dell'operazione $(a+b)+c$ che è sempre 0 tranne per gli ultimi due casi. Normalmente ci si aspetterebbe che il risultato fosse uguale ad $a$ in quanto la prima operazione che viene fatta è la somma tra $a$ e $b$ e poi si sottrae $c$ che è l'opposto di $b$, però questo è ovvio per il calcolo "umano". In realtà, i risultati sono così  perchè il calcolatore esegue degli errori di arrotondamento in quanto le operazioni effettuate sono tra valori molto grandi e molto piccoli quindi, ad esempio, per $i=0$ il calcolatore è come se eseguisse semplicemente $b+c$.
+    Sappiamo che per il \texttt{double} di C/C++ la precisione è
     \begin{equation*}
         u=\frac{1}{2}\cdot\left(B^{-t+1}\right) = \frac{1}{2}\cdot\left(2^{-51}\right) \simeq 2.22044605\cdot 10^{-16}  
     \end{equation*}
-    Questa è l'errore costant che ad ogni calcolo ci si attende.
-    
-    %\begin{center}
-    %    \begin{tabular}{| c | c | m{10cm} |}
-    %        \hline
-    %        \textbf{Iterazione} & \textbf{$\varepsilon=\frac{\tilde{x}-x}{x}$} & \textbf%{Spiegazione}\\
-    %        \hline
-    %        0 & $\frac{0-6}{6}=-1$ & Visto che $\varepsilon > u$ il risultato effettivamente non %è quello che ci aspettiamo, stessa cosa per le $i=1,\ldots,4$\\
-    %        \hline
-    %        5 & $\frac{655360-600000}{600000}$ & \\
-    %        \hline
-    %    \end{tabular}
-    %\end{center} 
+    Quindi possiamo dire che $a$ per essere "sentita" nelle operazioni deve essere \textbf{almeno} $u\cdot b\simeq 177635.684$ infatti fino all'iterazione $i=4$, $a$ non viene usata nel calcolo restituendo quindi come risultato 0. Per quanto riguarda l'iterazione $i=5$, 
 \end{quote}
 \newpage
 \section{Secondo esercizio}
