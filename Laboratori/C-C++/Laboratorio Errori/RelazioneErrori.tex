@@ -53,7 +53,7 @@
     \begin{equation*}
         u=\frac{1}{2}\cdot\left(B^{-t+1}\right) = \frac{1}{2}\cdot\left(2^{-51}\right) \simeq 2.22044605\cdot 10^{-16}  
     \end{equation*}
-    Quindi possiamo dire che $a$ per essere "sentita" nelle operazioni deve essere \textbf{almeno} $u\cdot b\simeq 177635.684$ infatti fino all'iterazione $i=4$ $a$ non viene usata nel calcolo restituendo quindi come risultato 0. Per quanto riguarda l'iterazione $i=5$, 
+    Quindi possiamo dire che $a$ per essere "sentita" nelle operazioni deve essere \textbf{almeno} $u\cdot b\simeq 177635.684$ infatti fino all'iterazione $i=4$ $a$ non viene usata nel calcolo restituendo quindi come risultato 0. Per quanto riguarda l'iterazione $i=5$ e $i=6$, il risultato che ci aspettiamo è quello che viene restituito da $a+(b+c)$ però i risultati dati da $(a+b)+c$ sono diversi e meno precisi in quanto $a$ viene "sentita" dall'operazione ma non è abbastanza grande causando l'effetto di \textbf{cancellazione} che amplifica il coefficiente di amplificazione degli errori che amplifica, a sua volta, l'errore. 
 \end{quote}
 \newpage
 \section{Secondo esercizio}
@@ -63,71 +63,76 @@
         \item Errore assoluto: $|Taylor-exp|$
         \item Errore relativo: $\left |\frac{Taylor-exp}{exp}\right |$
     \end{itemize}
-    \begin{tabular}{| c | c | c | c | c | c | c |}
-        \hline
-        \textbf{Alg} & \textbf{$x$} & \textbf{$N$} & \textbf{Taylor} & \textbf{exp()} & \textbf{Errore assoluto} & \textbf{Errore relativo}\\
-        \hline
-        1 & 0.5 & 3 & 1.64583 & 1.64872 & 0.00289 & 0.00175 \\
-        \hline
-        1 & 0.5 & 10 & 1.64872 & 1.64872 & 0 & 0 \\
-        \hline
-        1 & 0.5 & 50 & 1.64872 & 1.64872 & 0 & 0 \\
-        \hline 
-        1 & 0.5 & 100 & 1.64872 & 1.64872 & 0 & 0 \\
-        \hline
-        1 & 0.5 & 150 & 1.64872 & 1.64872 & 0 & 0 \\
-        \hline
-        1 & 30 & 3 & 4981 & $1.06865\cdot10^{13}$ & $1.06865\cdot10^{13}$ & 0.99999 \\
-        \hline
-        1 & 30 & 10 & $2.3883\cdot10^{8}$ & $1.06865\cdot10^{13}$ & $1.06863\cdot10^{13}$ & 0.99998 \\
-        \hline
-        1 & 30 & 50 & $1.06833\cdot10^{13}$ & $1.06865\cdot10^{13}$ & $3.2\cdot10^{9}$ & $2.99443\cdot10^{-4}$ \\
-        \hline
-        1 & 30 & 100 & $1.06865\cdot10^{13}$ & $1.06865\cdot10^{13}$ & 0 & 0 \\
-        \hline
-        1 & 30 & 150 & $1.06865\cdot10^{13}$ & $1.06865\cdot10^{13}$ & 0 & 0 \\
-        \hline
-        1 & -0.5 & 3 & 0.604167 & 0.606531 & 0.00236 & 0.00390 \\
-        \hline
-        1 & -0.5 & 10 & 0.606531 & 0.606531 & 0 & 0 \\
-        \hline
-        1 & -0.5 & 50 & 0.606531 & 0.606531 & 0 & 0 \\
-        \hline
-        1 & -0.5 & 100 & 0.606531 & 0.606531 & 0 & 0 \\
-        \hline
-        1 & -0.5 & 150 & 0.606531 & 0.606531 & 0 & 0 \\
-        \hline
-        1 & -30 & 3 & -4079 & $9.35762\cdot10^{-14}$ & 4079 & $4.35901\cdot10^{16}$ \\
-        \hline
-        1 & -30 & 10 & $1.21255\cdot10^{8}$ & $9.35762\cdot10^{-14}$ & 121255000 & $1.29579\cdot10^{21}$ \\
-        \hline
-        1 & -30 & 50 & $8.78229\cdot10^{8}$ & $9.35762\cdot10^{-14}$ & 878229000 & $9.38517\cdot10^{21}$ \\
-        \hline
-        1 & -30 & 100 & $-3.42134\cdot10^{-5}$ & $9.35762\cdot10^{-14}$ & $3.42134\cdot10^{-5}$ & 365620746.4\\
-        \hline
-        1 & -30 & 150 & $-3.42134\cdot10^{-5}$ & $9.35762\cdot10^{-14}$ & $3.42134\cdot10^{-5}$ & 365620746.4 \\
-        \hline
-        2 & -0.5 & 3 & 0.607595 & 1.64872 & 1.04113 & 0.63147 \\
-        \hline
-        2 & -0.5 & 10 & 0.606531 & 1.64872 & 1.04219 & 0.63212 \\
-        \hline
-        2 & -0.5 & 50 & 0.606531 & 1.64872 & 1.04219 & 0.63212 \\
-        \hline
-        2 & -0.5 & 100 & 0.606531 & 1.64872 & 1.04219 & 0.63212 \\
-        \hline
-        2 & -0.5 & 150 & 0.606531 & 1.64872 & 1.04219 & 0.63212 \\
-        \hline
-        2 & -30 & 3 & 0.000201 & $1.06865\cdot10^{13}$ & $1.06865\cdot10^{13}$ & 1 \\
-        \hline
-        2 & -30 & 10 & $1.31395\cdot10^{-8}$ & $1.06865\cdot10^{13}$ & $1.06865\cdot10^{13}$ & 1 \\
-        \hline
-        2 & -30 & 50 & $9.36248\cdot10^{-14}$ & $1.06865\cdot10^{13}$ & $1.06865\cdot10^{13}$ & 1 \\
-        \hline
-        2 & -30 & 100 & $9.35762\cdot10^{-14}$ & $1.06865\cdot10^{13}$ & $1.06865\cdot10^{13}$ & 1 \\
-        \hline
-        2 & -30 & 150 & $9.35762\cdot10^{-14}$ & $1.06865\cdot10^{13}$ & $1.06865\cdot10^{13}$ & 1 \\
-        \hline
-    \end{tabular}
+    \begin{center}
+        \begin{tabular}{| c | c | c | c | c | c | c |}
+            \hline
+            \textbf{Alg} & \textbf{$x$} & \textbf{$N$} & \textbf{Taylor} & \textbf{exp()} & \textbf{Errore assoluto} & \textbf{Errore relativo}\\
+            \hline
+            1 & 0.5 & 3 & 1.64583 & 1.64872 & 0.00289 & 0.00175 \\
+            \hline
+            1 & 0.5 & 10 & 1.64872 & 1.64872 & 0 & 0 \\
+            \hline
+            1 & 0.5 & 50 & 1.64872 & 1.64872 & 0 & 0 \\
+            \hline 
+            1 & 0.5 & 100 & 1.64872 & 1.64872 & 0 & 0 \\
+            \hline
+            1 & 0.5 & 150 & 1.64872 & 1.64872 & 0 & 0 \\
+            \hline
+            1 & 30 & 3 & 4981 & $1.06865\cdot10^{13}$ & $1.06865\cdot10^{13}$ & 0.99999 \\
+            \hline
+            1 & 30 & 10 & $2.3883\cdot10^{8}$ & $1.06865\cdot10^{13}$ & $1.06863\cdot10^{13}$ & 0.99998 \\
+            \hline
+            1 & 30 & 50 & $1.06833\cdot10^{13}$ & $1.06865\cdot10^{13}$ & $3.2\cdot10^{9}$ & $2.99443\cdot10^{-4}$ \\
+            \hline
+            1 & 30 & 100 & $1.06865\cdot10^{13}$ & $1.06865\cdot10^{13}$ & 0 & 0 \\
+            \hline
+            1 & 30 & 150 & $1.06865\cdot10^{13}$ & $1.06865\cdot10^{13}$ & 0 & 0 \\
+            \hline
+            1 & -0.5 & 3 & 0.604167 & 0.606531 & 0.00236 & 0.00390 \\
+            \hline
+            1 & -0.5 & 10 & 0.606531 & 0.606531 & 0 & 0 \\
+            \hline
+            1 & -0.5 & 50 & 0.606531 & 0.606531 & 0 & 0 \\
+            \hline
+            1 & -0.5 & 100 & 0.606531 & 0.606531 & 0 & 0 \\
+            \hline
+            1 & -0.5 & 150 & 0.606531 & 0.606531 & 0 & 0 \\
+            \hline
+            1 & -30 & 3 & -4079 & $9.35762\cdot10^{-14}$ & 4079 & $4.35901\cdot10^{16}$ \\
+            \hline
+            1 & -30 & 10 & $1.21255\cdot10^{8}$ & $9.35762\cdot10^{-14}$ & 121255000 & $1.29579\cdot10^{21}$ \\
+            \hline
+            1 & -30 & 50 & $8.78229\cdot10^{8}$ & $9.35762\cdot10^{-14}$ & 878229000 & $9.38517\cdot10^{21}$ \\
+            \hline
+            1 & -30 & 100 & $-3.42134\cdot10^{-5}$ & $9.35762\cdot10^{-14}$ & $3.42134\cdot10^{-5}$ & 365620746.4\\
+            \hline
+            1 & -30 & 150 & $-3.42134\cdot10^{-5}$ & $9.35762\cdot10^{-14}$ & $3.42134\cdot10^{-5}$ & 365620746.4 \\
+            \hline
+            2 & -0.5 & 3 & 0.607595 & 0.606531 & 0.00106 & 0.00175 \\
+            \hline
+            2 & -0.5 & 10 & 0.606531 & 0.606531 & 0 & 0 \\
+            \hline
+            2 & -0.5 & 50 & 0.606531 & 0.606531 & 0 & 0 \\
+            \hline
+            2 & -0.5 & 100 & 0.606531 & 0.606531 & 0 & 0 \\
+            \hline
+            2 & -0.5 & 150 & 0.606531 & 0.606531 & 0 & 0 \\
+            \hline
+            2 & -30 & 3 & 0.000201 & $9.35762\cdot 10^{-14}$ & $2.01\cdot10^{-4}$ & $2.14798\cdot 10^{9}$ \\
+            \hline
+            2 & -30 & 10 & $4.187091\cdot 10^{-9}$ & $9.35762\cdot 10^{-14}$ & $4.187\cdot10^{-9}$ & 44744 \\
+            \hline
+            2 & -30 & 50 & $9.36041\cdot 10^{-14}$ & $9.35762\cdot 10^{-14}$ & $2.79\cdot 10^{-17}$ & $2.98153\cdot 10^{-4}$ \\
+            \hline
+            2 & -30 & 100 & $9.35762\cdot 10^{-14}$ & $9.35762\cdot 10^{-14}$ & 0 & 0 \\
+            \hline
+            2 & -30 & 150 & $9.35762\cdot 10^{-14}$ & $9.35762\cdot 10^{-14}$ & 0 & 0 \\
+            \hline
+        \end{tabular}
+        \vspace{0.5em}\\\textit{I valori degli errori sono stati arrotondati a 5 cifre decimali}
+    \end{center}
+    \subsection{Analisi dei risultati}
+    Possiamo notare che per $x$ piccole e tutte le $N$ per l'algoritmo 1, gli errori sono molto vicini allo zero (se non zero stesso) mentre per $x$ grandi e $N$ piccole, gli errori sono elevati. Per quanto riguarda l'algoritmo 2 possiamo notare che gli errori sono vicini allo zero per tutte le $N$ e $x$ piccole mentre per $x$ grandi e $N$ piccole, gli errori sono elevati. Il secondo algoritmo risulta più preciso del primo per le $x$ negative.
 \end{quote}
 \newpage
 \section{Terzo esercizio}
@@ -137,8 +142,14 @@
     \end{equation*}
     è:
     \begin{itemize}
-        \item Doppia precisione: $d=53$
-        \item Singola precisione: $d=24$
+        \item Doppia precisione (\texttt{double}): $d=53$
+        \item Singola precisione (\texttt{float}): $d=24$
     \end{itemize}
+    Sostituendo $d$ in $2^{-d}$ avremo la precisione di macchina per:
+    \begin{itemize}
+        \item Doppia precisione: $2^{-53}\simeq 1.11022\cdot 10^{-16}$
+        \item Singola precisione: $2^{-24}\simeq 5.96046\cdot 10^{-8}$
+    \end{itemize}
+    Questo conferma che \texttt{double} è più precisa di \texttt{float} perchè utilizza più bit per rappresentare i numeri.
 \end{quote}
 \end{document}
