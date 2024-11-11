@@ -26,7 +26,7 @@ double Taylor(int N, double x)
 int main()
 {
     int N[] = {3, 10, 50, 100, 150};
-    float x[] = {0.5, 30, -0.5, -30};
+    double x[] = {0.5, 30, -0.5, -30};
 
     ofstream file("ES2RISULTATI.md");
     if (!file)
@@ -64,7 +64,7 @@ int main()
                 file << ", N: " << to_string(N[i]) << endl;
                 file << "### Risultati\n";
                 file << "Taylor: " << 1 / Taylor(N[i], x[j]) << "\n";
-                file << "Exp: " << exp(x[j]) << "\n";
+                file << "Exp: " << exp(-x[j]) << "\n";
             }
         }
     }
