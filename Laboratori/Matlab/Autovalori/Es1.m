@@ -1,18 +1,19 @@
 matr = [5 4 6 2 8 4 3];
 d0 = matr(1,1);
 d1 = matr(1,7);
-n = 10*(d1 + 1) + d0;
+n = 10 * (d1 + 1) + d0;
 A = diag(ones(1,n-1),1) + eye(n);
 E = zeros(n);
 E(n,1) = pow2(-n);
 B = A + E;
-VA = eig(A);
-VB = eig(B);
+VA = real(eig(A));
+disp(VA)
+VB = real(eig(B));
 normAB = norm(B-A)/norm(A);
 normVAVB = norm(VB-VA)/norm(VA);
 AT = A';
 BT = B';
-VATA = eig(AT*A);
-VBTB = eig(BT*B);
+VATA = real(eig(AT*A));
+VBTB = real(eig(BT*B));
 normATBT = norm((BT*B)-(AT*A))/norm(AT*A);
 normVATABTB = norm(VBTB-VATA)/norm(VATA);
