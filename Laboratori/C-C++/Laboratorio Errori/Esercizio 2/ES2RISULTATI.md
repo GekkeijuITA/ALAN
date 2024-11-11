@@ -80,7 +80,7 @@ Exp: 9.35762e-14
 Taylor: -3.42134e-05
 Exp: 9.35762e-14
 
-# Algoritmo 2:
+ # Algoritmo 2:
 ## x: -0.500000, N: 3
 ### Risultati
 Taylor: 0.607595

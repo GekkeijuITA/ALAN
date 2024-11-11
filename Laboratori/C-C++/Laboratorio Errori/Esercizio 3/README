@@ -1,1 +1,1 @@
-Per compilare ed eseguire il codice:
+Per compilare ed eseguire il codice: g++ es3.cpp -o es3 && es3

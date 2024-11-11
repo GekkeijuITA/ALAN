@@ -1,8 +1,11 @@
 #include <iostream>
 #include <cmath>
 #include <fstream>
+#include <filesystem>
 
 using namespace std;
+
+#define FILE_NAME "ES3RISULTATI.md"
 
 double epsDouble()
 {
@@ -33,10 +36,10 @@ int main()
     float epsF = epsFloat();
     double epsD = epsDouble();
 
-    ofstream file("ES3RISULTATI.md");
+    ofstream file(FILE_NAME);
     if (!file)
     {
-        cerr << "Errore nell'apertura del file, prova a guardare se il file ES3RISULTATI.md è stato creato altrimenti crealo nella stessa cartella dell'eseguibile" << endl;
+        cerr << "Errore nell'apertura del file, prova a guardare se il file " << FILE_NAME << " è stato creato altrimenti crealo nella stessa cartella dell'eseguibile" << endl;
         return 1;
     }
 
@@ -44,5 +47,6 @@ int main()
     file << "## Doppia precisione: " << epsD << "\n";
     file << "## Singola precisione: " << epsF << "\n";
     file.close();
+    cout << "Risultati scritti nel percorso: " << filesystem::absolute(FILE_NAME) << endl;
     return 0;
 }

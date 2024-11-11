@@ -1,8 +1,11 @@
 #include <iostream>
 #include <math.h>
 #include <fstream>
+#include <filesystem>
 
 using namespace std;
+
+#define FILE_NAME "ES2RISULTATI.md"
 
 double factorial(int n)
 {
@@ -28,10 +31,10 @@ int main()
     int N[] = {3, 10, 50, 100, 150};
     double x[] = {0.5, 30, -0.5, -30};
 
-    ofstream file("ES2RISULTATI.md");
+    ofstream file(FILE_NAME);
     if (!file)
     {
-        cerr << "Errore nell'apertura del file, prova a guardare se il file ES2RISULTATI.md è stato creato altrimenti crealo nella stessa cartella dell'eseguibile" << endl;
+        cerr << "Errore nell'apertura del file, prova a guardare se il file " << FILE_NAME << " è stato creato altrimenti crealo nella stessa cartella dell'eseguibile" << endl;
         return 1;
     }
 
@@ -69,6 +72,6 @@ int main()
         }
     }
     file.close();
-    cout << "File scritto correttamente" << endl;
+    cout << "Risultati scritti nel percorso: " << filesystem::absolute(FILE_NAME) << endl;
     return 0;
 }

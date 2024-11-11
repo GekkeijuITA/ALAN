@@ -1,17 +1,19 @@
 #include <iostream>
 #include <cmath>
 #include <fstream>
+#include <filesystem>
 
 using namespace std;
 
 #define MATR_LEN 7
+#define FILE_NAME "ES1RISULTATI.md"
 
 int main()
 {
-    ofstream file("ES1RISULTATI.md");
+    ofstream file(FILE_NAME);
     if (!file)
     {
-        cerr << "Errore nell'apertura del file, prova a guardare se il file ES1RISULTATI.md è stato creato altrimenti crealo nella stessa cartella dell'eseguibile" << endl;
+        cerr << "Errore nell'apertura del file, prova a guardare se il file " << FILE_NAME << " è stato creato altrimenti crealo nella stessa cartella dell'eseguibile" << endl;
         return 1;
     }
 
@@ -39,5 +41,6 @@ int main()
         file << "a+(b+c) = " << res2 << "\n";
     }
     file.close();
+    cout << "Risultati scritti nel percorso: " << filesystem::absolute(FILE_NAME) << endl;
     return 0;
 }
