@@ -44,8 +44,8 @@ int main()
     }
 
     file << "# Più grande d numero intero positivo tale che 1+2^-d > 1 è:\n";
-    file << "## Doppia precisione: " << epsD << "\n";
-    file << "## Singola precisione: " << epsF << "\n";
+    file << "## Doppia precisione: " << epsD << " | Valore: " << pow(2,-epsD) << "\n";
+    file << "## Singola precisione: " << epsF << " | Valore: " << pow(2,-epsF)  << "\n";
     file.close();
     cout << "Risultati scritti nel percorso: " << filesystem::absolute(FILE_NAME) << endl;
     return 0;
