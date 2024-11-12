@@ -18,6 +18,7 @@ int main()
     file << "\n# b)\n";
     file << "Matrice di Pascal:<br/>";
     printMatrix(P, file);
+    file << "Norma della matrice: " << normaInf(P);
 
     // Matricola usata: 5462843
     int n2 = 10 * (matricola[1] + 1) + matricola[0];
@@ -25,6 +26,7 @@ int main()
     file << "\n# c)\n";
     file << "Matrice tridiagonale:<br/>";
     printMatrix(T, file);
+    file << "Norma della matrice: " << normaInf(T);
     file.close();
     return 0;
 }
