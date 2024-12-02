@@ -37,11 +37,11 @@ vector<vector<double>> pascalMatrix(int n)
             throw 505;
         vector<vector<double>> P = vector<vector<double>>(n, vector<double>(n, 0));
 
-        for (int i = 0; i < n; i++)
+        for (int i = 1; i <= n; i++)
         {
-            for (int j = 0; j < n; j++)
+            for (int j = 1; j <= n; j++)
             {
-                P[i][j] = factorial(i + j) / (factorial(i) * factorial(j));
+                P[i-1][j-1] = factorial(i + j - 2) / (factorial(i - 1) * factorial(j - 1));
             }
         }
 
@@ -60,7 +60,7 @@ void printMatrix(vector<vector<double>> matrix, ofstream &file)
     {
         for (int j = 0; j < matrix[0].size(); j++)
         {
-            file << matrix[i][j] << " - ";
+            file << matrix[i][j] << ", ";
         }
         file << "<br/>";
     }

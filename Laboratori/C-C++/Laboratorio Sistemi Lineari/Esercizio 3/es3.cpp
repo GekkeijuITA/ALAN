@@ -1,4 +1,4 @@
-#include "funzioniInComune.cpp"
+#include "../funzioniInComune.cpp"
 
 vector<vector<double>> noise(int n)
 {
@@ -44,11 +44,11 @@ int main()
     int n2 = 10 * (matricola[1] + 1) + matricola[0];
     vector<vector<double>> T = triMatrix(n2);
 
-    file << "# Matrice di Pascal:<br/>\n";
-    printMatrix(P, file);
-
-    file << "\n# Matrice tridiagonale:<br/>\n";
-    printMatrix(T, file);
+    //file << "# Matrice di Pascal:<br/>\n";
+    //printMatrix(P, file);
+//
+    //file << "\n# Matrice tridiagonale:<br/>\n";
+    //printMatrix(T, file);
 
     vector<vector<double>> xA(A.size(), vector<double>(1, 1));
     vector<vector<double>> xB(B.size(), vector<double>(1, 1));
@@ -84,9 +84,9 @@ int main()
     printMatrix(toDouble(xA1), file);
     file << "\n## Soluzione del sistema lineare Bx = b + d:<br/>\n";
     printMatrix(toDouble(xB1), file);
-    file << "\n## Soluzione del sistema lineare Px = b + d:<br/>\n";
-    printMatrix(toDouble(xT1), file);
     file << "\n## Soluzione del sistema lineare Tx = b + d:<br/>\n";
+    printMatrix(toDouble(xT1), file);
+    file << "\n## Soluzione del sistema lineare Px = b + d:<br/>\n";
     printMatrix(toDouble(xP1), file);
 
     file.close();

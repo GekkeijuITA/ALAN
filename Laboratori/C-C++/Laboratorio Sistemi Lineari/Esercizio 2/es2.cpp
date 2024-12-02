@@ -1,4 +1,4 @@
-#include "funzioniInComune.cpp"
+#include "../funzioniInComune.cpp"
 
 int main()
 {
@@ -17,11 +17,11 @@ int main()
     int n2 = 10 * (matricola[1] + 1) + matricola[0];
     vector<vector<double>> T = triMatrix(n2);
 
-    file << "# Matrice di Pascal:<br/>\n";
-    printMatrix(P, file);
-
-    file << "\n# Matrice tridiagonale:<br/>\n";
-    printMatrix(T, file);
+    //file << "# Matrice di Pascal:<br/>\n";
+    //printMatrix(P, file);
+//
+    //file << "\n# Matrice tridiagonale:<br/>\n";
+    //printMatrix(T, file);
 
     file << "\n# Prodotto tra matrici\n";
 

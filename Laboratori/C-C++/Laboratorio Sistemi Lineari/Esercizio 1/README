@@ -1,0 +1,1 @@
+Per compilare ed eseguire il codice: g++ es1.cpp -o es1 && es1

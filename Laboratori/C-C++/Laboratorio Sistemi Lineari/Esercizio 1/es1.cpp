@@ -1,4 +1,4 @@
-#include "funzioniInComune.cpp"
+#include "../funzioniInComune.cpp"
 
 int main()
 {
