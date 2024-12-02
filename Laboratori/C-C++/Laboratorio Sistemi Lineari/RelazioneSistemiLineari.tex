@@ -29,7 +29,7 @@ La norma $\infty$ della matrice di Pascal per $n=10$:$\begin{pmatrix}
     1 & 8 & 36 & 120 & 330 & 792 & 1716 & 3432 & 6435 & 11440 \\
     1 & 9 & 45 & 165 & 495 & 1287 & 3003 & 6435 & 12870 & 24310 \\
     1 & 10 & 55 & 220 & 715 & 2002 & 5005 & 11440 & 24310 & 48620 \\
-\end{pmatrix}$ è .
+\end{pmatrix}$ è 92378.
 \subsection*{c)}
 \setlength{\arraycolsep}{0.01cm}
 La norma $\infty$ della matrice tridiagonale:\\
@@ -90,7 +90,7 @@ $\begin{pmatrix}
     0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -1 & 2 & -1 & 0\\
     0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -1 & 2 & -1\\
     0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -1 & 2
-\end{pmatrix}$\normalsize\\ è .
+\end{pmatrix}$\normalsize\\ è 4.
 \setlength{\arraycolsep}{0.2cm}
 \newpage
 \section{Secondo esercizio}
@@ -103,21 +103,21 @@ calcolare \begin{equation*}
 \textbf{Matrice A}:
 $b=\begin{pmatrix}
     3 & 4 & 4 & -6   
-\end{pmatrix}$\quad
+\end{pmatrix}^{T}$\quad
 \textbf{Matrice B}:
-$\begin{pmatrix}
+$b =\begin{pmatrix}
     4&5&5&2   
-\end{pmatrix}$
+\end{pmatrix}^{T}$
 \\\textbf{Matrice Pascal}:
-$\begin{pmatrix}
+$b =\begin{pmatrix}
     10&55&220&715&2002&5005&11440&24310&48620&92378&
-\end{pmatrix}$
+\end{pmatrix}^{T}$
 \\\textbf{Matrice Tridiagonale}:\\
 \tiny
 \setlength{\arraycolsep}{0.1cm}
-$\begin{pmatrix}
+$b =\begin{pmatrix}
     1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&1&
-\end{pmatrix}$\\
+\end{pmatrix}^{T}$\\
 \normalsize
 \setlength{\arraycolsep}{0.2cm}
 Risolvere
@@ -142,6 +142,7 @@ $x = \begin{pmatrix}
     1 \\ 1 \\1 \\1 \\1 \\1 \\1 \\1 \\1 \\1 \\1 \\1 \\1 \\1 \\1 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\0.999998 \\0.999998 \\0.999998 \\0.999998 \\0.999998 \\0.999998 \\0.999999 \\0.999999 \\0.999999 \\0.999999 \\1 \\1 \\
 \end{pmatrix}$\\
 \normalsize
+Come si può notare la $x$ trovata usando la $b$ della matrice di Pascal è molto diversa rispetto a quello che ci si aspetterebbe, questo è dovuto al fatto che la matrice di Pascal è mal condizionata ed era prevedibile in quanto la sua norma è molto grande. Per la $x$ della matrice tridiagonale invece si può notare che è molto simile a quella attesa ma con qualche errore di approssimazione.
 \newpage
 \section{Terzo esercizio}
 Usando le stesse matrici del primo esercizio e le stesse $b$ del secondo: risolvere il sistema lineare \begin{equation*}
@@ -155,19 +156,16 @@ $\bar{x} = \begin{pmatrix}
 $\bar{x} = \begin{pmatrix}
     0.92 \\1.024 \\1.008 \\1.088 \\
 \end{pmatrix}$
-\\\textbf{Matrice Pascal}:
+\\\textbf{Matrice Tridiagonale}:
 \tiny
 $\bar{x} = \begin{pmatrix}
-    -460.936 \\1.00018 \\-460.936 \\1.00039 \\-460.936 \\1.00057 \\-460.935 \\1.00071 \\-460.935 \\1.00081 \\-460.935 \\1.00088 \\-460.935 \\1.00095 \\-460.935 \\1.00103 \\-460.935 \\1.00114 \\-460.935 \\1.00124 \\-460.935 \\1.0013 \\-460.935 \\1.00131 \\-460.935 \\1.00131 \\-460.935 \\1.00132 \\-460.935 \\1.00132 \\-460.935 \\1.0013 \\-460.935 \\1.00131 \\-460.935 \\1.00133 \\-460.935 \\1.00136 \\-460.935 \\1.00133 \\-460.935 \\1.00128 \\-460.935 \\1.00123 \\-460.935 \\1.00112 \\-460.935 \\1.00094 \\-460.935 \\1.00074 \\-460.935 \\1.0005 \\-460.936 \\1.00028 \\-460.936 \\
+    0.99395\\1\\0.99395\\1\\0.99395\\1\\0.99395\\1\\0.993949\\0.999999\\0.993949\\0.999999\\0.993949\\0.999999\\0.993949\\0.999999\\0.993949\\0.999999\\0.993949\\0.999999\\0.993949\\0.999999\\0.993949\\0.999999\\0.993949\\0.999999\\0.993949\\0.999999\\0.993949\\0.999999\\0.993949\\0.999999\\0.993949\\0.999999\\0.993949\\0.999999\\0.993949\\0.999999\\0.993949\\0.999999\\0.993949\\0.999999\\0.993949\\0.999998\\0.993948\\0.999998\\0.993948\\0.999999\\0.993949\\0.999999\\0.993949\\0.999999\\0.993949\\1\\0.99395
 \end{pmatrix}$
 \footnotesize\quad
-\textbf{Matrice Tridiagonale}:
+\textbf{Matrice Pascal}:
 $\bar{x} = \begin{pmatrix}
-    -1.33938\cdot 10^{6} \\1.11\cdot 10^{7} \\ -4.16115 \cdot 10^{7} \\ 9.17637\cdot 10^{7}  \\ -1.30715\cdot 10^{8} \\ 1.24549\cdot 10^{8} \\ -7.9327\cdot 10^{7} \\ 3.2554\cdot 10^{7} \\ -7.80861\cdot 10^{6} \\ 833947 \\
+    -1.33938\cdot 10^{6}\\1.11\cdot 10^{7}\\-4.16115\cdot 10^{7}\\9.17637\cdot 10^{7}\\-1.30715\cdot 10^{8}\\1.24549\cdot 10^{8}\\-7.9327\cdot 10^{7}\\3.2554\cdot 10^{7}\\-7.80861\cdot 10^{6}\\833947\\
 \end{pmatrix}$\\
 \normalsize
-\textbf{Confrontare le due soluzioni x e $\bar{x}$ ottenute, corrispondenti ai rispettivi sistemi lineari con termine noto
-b e $b + \delta b$. Cosa si osserva? In base agli argomenti visti a lezione, come si possono giustificare i risultati
-ottenuti?
-}
+Possiamo notare che le $\bar{x}$ calcolate con le matrici $A,B$ e Tridiagonale non sono molto diverse rispetto a quelle calcolate nell'esercizio precedente, mentre la $\bar{x}$ calcolata usando la matrice di Pascal è molto diversa rispetto a quella calcolata nell'esercizio precedente, questo è dovuto al fatto che la matrice di Pascal è mal condizionata come già notato nel secondo esercizio infatti il condizionamento $\mu(P)=\Vert P\Vert_{\infty}\cdot \Vert P^{-1}\Vert_{\infty} \simeq 8133698143$ (valore calcolato con l'ausilio di MatLab R2024b). 
 \end{document}
