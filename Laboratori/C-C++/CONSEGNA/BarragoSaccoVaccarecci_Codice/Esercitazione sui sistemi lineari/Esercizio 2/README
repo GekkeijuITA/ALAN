@@ -1,0 +1,1 @@
+Per compilare ed eseguire il codice: g++ es2.cpp -o es2 && es2

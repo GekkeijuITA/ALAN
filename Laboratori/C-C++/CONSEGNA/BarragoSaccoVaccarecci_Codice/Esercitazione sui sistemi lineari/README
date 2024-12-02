@@ -1,0 +1,9 @@
+Per poter compilare il codice è necessario che la struttura della cartella sia la seguente:
+├── funzioniInComune.h
+├── funzioniInComune.cpp
+├── Esercizio 1
+│   └── es1.cpp
+├── Esercizio 2
+│   └── es2.cpp
+├── Esercizio 3
+│   └── es3.cpp
